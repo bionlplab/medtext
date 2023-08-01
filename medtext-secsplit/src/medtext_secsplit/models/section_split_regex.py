@@ -7,7 +7,7 @@ import tqdm
 import bioc
 from bioc import BioCSentence, BioCPassage, BioCDocument, BioCLocation, BioCAnnotation, BioCCollection
 
-from medtext_base.models.core import BioCProcessor
+from medtext_base.core import BioCProcessor
 from medtext_base.utils import is_passage_empty, strip_passage
 
 # SECTION_TITLES = [

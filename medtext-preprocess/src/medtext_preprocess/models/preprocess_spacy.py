@@ -1,6 +1,6 @@
 from bioc import BioCPassage, BioCSentence, BioCAnnotation, BioCRelation, BioCNode, BioCLocation
 
-from medtext_base.models.core import BioCProcessor
+from medtext_base.core import BioCProcessor
 
 
 class BioCSpacy(BioCProcessor):

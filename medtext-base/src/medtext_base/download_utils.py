@@ -1,5 +1,4 @@
 import hashlib
-import logging
 import os
 from os import PathLike
 from pathlib import Path

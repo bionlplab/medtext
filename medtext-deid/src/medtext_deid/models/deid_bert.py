@@ -3,7 +3,7 @@ from typing import Tuple, List
 
 import bioc
 
-from medtext_base.models.core import BioCProcessor
+from medtext_base.core import BioCProcessor
 from bert_deid.model.transformer import Transformer
 from bioc import BioCPassage, BioCSentence
 

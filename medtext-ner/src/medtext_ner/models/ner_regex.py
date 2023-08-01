@@ -3,7 +3,7 @@ from typing import Pattern, List, Generator, Iterable
 import bioc
 from bioc import BioCPassage, BioCSentence
 
-from medtext_base.models.core import BioCProcessor
+from medtext_base.core import BioCProcessor
 from medtext_neg.models.utils import NERMatch, remove_duplicates, longest_matching, remove_excludes
 
 

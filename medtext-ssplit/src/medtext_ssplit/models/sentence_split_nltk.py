@@ -4,7 +4,7 @@ from typing import List, Generator, Tuple
 import nltk
 from bioc import BioCPassage, BioCSentence
 
-from medtext_base.models.core import BioCProcessor
+from medtext_base.core import BioCProcessor
 
 
 def split_newline(text: str, sep='\n') -> Generator[Tuple[str, int], None, None]:

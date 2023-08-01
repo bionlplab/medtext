@@ -1,6 +1,6 @@
 import pandas as pd
 
-from src.radtext.models import csv2bioc
+from medtext_conv.models import csv2bioc
 
 
 def test_csv2bioc(example_dir):
@@ -10,4 +10,4 @@ def test_csv2bioc(example_dir):
     assert len(collection.documents) == 2
 
     for i in range(1, 3):
-        assert collection.documents[i-1].text == df['note_text'][i]
+        assert collection.documents[i-1].passages[0].text == df['note_text'][i]

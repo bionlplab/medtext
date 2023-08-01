@@ -4,7 +4,7 @@ import os
 import tqdm
 
 import bioc
-from medtext_base.models.core import BioCProcessor
+from medtext_base.core import BioCProcessor
 
 
 def process_options(argv):

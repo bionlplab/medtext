@@ -1,4 +1,4 @@
-from medtext_base.utils import contains, intersect
+from medtext_base.base_utils import contains, intersect
 
 
 def test_contains():

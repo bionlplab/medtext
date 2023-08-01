@@ -16,7 +16,7 @@ from pathlib import Path
 import bioc
 
 from medtext_base.download_utils import request_medtext
-from medtext_base.models.core import BioCPipeline
+from medtext_base.core import BioCPipeline
 
 """
     --regex_negation FILE               [default: .radtext/resources/patterns/regex_negation.yml]

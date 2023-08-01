@@ -1,11 +1,11 @@
 # Data conversion
 
 This section describes how to seamlessly convert between BioC data model, the
-plain str, and CDM NOTE table.
+plain text, and CDM NOTE table.
 
 ## BioC 
 
-RadText uses the [BioC](http://bioc.sourceforge.net/) format as the unified interface. 
+MedText uses the [BioC](http://bioc.sourceforge.net/) format as the unified interface. 
 BioC is a simple format to share text data and annotations. It allows a large number of different annotations to be
 represented. The BioC data model can represent a broad range of data elements from a collection of documents through
 passages, sentences, down to annotations on individual tokens and relations between them. Thus it is suitable for
@@ -49,16 +49,16 @@ files, for example, 5000 reports per BioC file.
 
 ## OMOP CDM NOTE and NOTE_NLP tables
 
-RadText also offers a tool to convert from [OMOP CDM NOTE
+MedText also offers a tool to convert from [OMOP CDM NOTE
 table](https://www.ohdsi.org/web/wiki/doku.php?id=documentation:cdm:note) (in
 the CSV format) to the BioC collection. By default, column `note_id` stores
 the report ids, and column `note_text` stores the reports.
 
 ```shell
 # Convert from csv to BioC
-$ radtext-csv2bioc -i /path/to/csv_file.csv -o /path/to/bioc_file.xml
+$ medtext-csv2bioc -i /path/to/csv_file.csv -o /path/to/bioc_file.xml
 
 # Convert from NOTE table to BioC
-$ radtext-cdm2bioc -i /path/to/csv_file.csv -o /path/to/bioc_file.xml
+$ medtext-cdm2bioc -i /path/to/csv_file.csv -o /path/to/bioc_file.xml
 ```
 

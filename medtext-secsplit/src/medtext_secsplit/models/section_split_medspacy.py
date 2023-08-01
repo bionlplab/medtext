@@ -2,7 +2,7 @@ import bioc
 import tqdm
 from bioc import BioCSentence, BioCCollection, BioCDocument, BioCPassage
 
-from medtext_base.models.core import BioCProcessor
+from medtext_base.core import BioCProcessor
 from medtext_base.utils import is_passage_empty, strip_passage
 
 

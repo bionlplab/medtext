@@ -4,7 +4,7 @@ from bioc import BioCAnnotation, BioCLocation, BioCPassage, BioCSentence
 from spacy.matcher import PhraseMatcher
 from spacy.tokens.doc import Doc
 
-from medtext_base.models.core import BioCProcessor
+from medtext_base.core import BioCProcessor
 from medtext_neg.models.utils import longest_matching, remove_duplicates, remove_excludes, filter_number, \
     filter_stop_words, STOP_WORDS
 from medtext_neg.models.utils import NERMatch

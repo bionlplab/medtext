@@ -2,7 +2,7 @@ from typing import Tuple, List
 
 import bioc
 
-from medtext_base.models.core import BioCProcessor
+from medtext_base.core import BioCProcessor
 from medtext_deid.pphilter import Philter
 from bioc import BioCPassage, BioCSentence
 

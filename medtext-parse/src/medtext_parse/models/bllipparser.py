@@ -7,7 +7,7 @@ from typing import Union, List
 from bioc import BioCSentence, BioCPassage, BioCAnnotation
 from bllipparser import RerankingParser
 
-from medtext_base.models.core import BioCProcessor
+from medtext_base.core import BioCProcessor
 from medtext_base.utils import is_ner
 
 
