@@ -1,0 +1,5 @@
+bioc>=2.0
+docopt
+medtext_base
+stanza
+spacy

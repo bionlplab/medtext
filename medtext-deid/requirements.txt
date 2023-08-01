@@ -1,0 +1,9 @@
+bioc>=2.0
+docopt
+medtext_base
+nltk
+# bert_deid
+# seqeval
+# transformers==3.4
+# protobuf==3.20.3
+# google-cloud-storage==1.32.0
