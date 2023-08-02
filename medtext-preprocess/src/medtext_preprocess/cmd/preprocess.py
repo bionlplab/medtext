@@ -19,7 +19,7 @@ import docopt
 import spacy
 import stanza
 
-from medtext_base.cmd.utils import process_options, process_file
+from medtext_commons.cmd.utils import process_options, process_file
 from medtext_preprocess.models.preprocess_spacy import BioCSpacy
 from medtext_preprocess.models.preprocess_stanza import BioCStanza
 

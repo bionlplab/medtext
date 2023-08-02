@@ -115,3 +115,12 @@ $ pip install --index-url https://test.pypi.org/simple/ radtext
 ```shell
 $ bash tests/validate.sh
 ```
+
+### Test
+
+Install `pytest` and `pytest-cov`. Then, for each module, run
+
+```shell
+$ pip install -e .
+$ pytest --cov=. --cov-report=html
+```

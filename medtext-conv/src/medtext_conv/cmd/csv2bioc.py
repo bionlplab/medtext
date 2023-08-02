@@ -16,7 +16,7 @@ import bioc
 import docopt
 import pandas as pd
 
-from medtext_base.cmd.utils import process_options
+from medtext_commons.cmd_utils import process_options
 from medtext_conv.models.csv2bioc import csv2bioc
 
 

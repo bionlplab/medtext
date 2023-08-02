@@ -15,8 +15,8 @@ from pathlib import Path
 
 import bioc
 
-from medtext_base.download_utils import request_medtext
-from medtext_base.core import BioCPipeline
+from medtext_commons.download_utils import request_medtext
+from medtext_commons.core import BioCPipeline
 
 """
     --regex_negation FILE               [default: .radtext/resources/patterns/regex_negation.yml]
@@ -29,7 +29,7 @@ from medtext_base.core import BioCPipeline
     --ngrex_double_neg FILE             [default: .radtext/resources/patterns/ngrex_double_negation.yml]
 """
 import docopt
-from medtext_base.cmd.utils import process_options, process_file
+from medtext_commons.cmd.utils import process_options, process_file
 from medtext_neg.models.match_ngrex import NegGrexPatterns
 from medtext_neg.models.neg import NegRegexPatterns
 from medtext_neg.models.neg_cleanup import NegCleanUp

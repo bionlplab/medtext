@@ -15,7 +15,7 @@ from pathlib import Path
 import docopt
 
 import bioc
-from medtext_base.cmd.utils import process_options, process_file
+from medtext_commons.cmd.utils import process_options, process_file
 from medtext_parse.models.bllipparser import BioCParserBllip
 
 BLLIP_MODEL_URL = 'https://nlp.stanford.edu/~mcclosky/models/BLLIP-GENIA-PubMed.tar.bz2'

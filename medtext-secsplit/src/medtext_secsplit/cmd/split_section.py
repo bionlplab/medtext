@@ -13,8 +13,8 @@ Options:
 import bioc
 import docopt
 
-from medtext_base.cmd.utils import process_options
-from medtext_base.download_utils import request_medtext
+from medtext_commons.cmd.utils import process_options
+from medtext_commons.download_utils import request_medtext
 from medtext_secsplit.models.section_split_regex import BioCSectionSplitterRegex, combine_patterns
 
 

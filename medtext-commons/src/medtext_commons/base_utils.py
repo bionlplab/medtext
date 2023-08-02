@@ -38,7 +38,7 @@ def contains(func, iterable):
 
 
 def is_passage_empty(passage: BioCPassage) -> bool:
-    return len(passage.text) == 0
+    return passage.text is None or len(passage.text) == 0
 
 
 def strip_passage(passage: BioCPassage) -> BioCPassage:

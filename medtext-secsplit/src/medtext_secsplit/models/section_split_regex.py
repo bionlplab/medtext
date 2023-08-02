@@ -7,8 +7,8 @@ import tqdm
 import bioc
 from bioc import BioCSentence, BioCPassage, BioCDocument, BioCLocation, BioCAnnotation, BioCCollection
 
-from medtext_base.core import BioCProcessor
-from medtext_base.utils import is_passage_empty, strip_passage
+from medtext_commons.core import BioCProcessor
+from medtext_commons.utils import is_passage_empty, strip_passage
 
 # SECTION_TITLES = [
 #     "ABDOMEN AND PELVIS:",

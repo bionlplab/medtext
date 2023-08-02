@@ -5,7 +5,7 @@ import bioc
 from StanfordDependencies import Sentence
 from bioc import BioCSentence
 
-from medtext_base.core import BioCProcessor
+from medtext_commons.core import BioCProcessor
 
 
 JPYPE = 'jpype'

@@ -4,7 +4,7 @@ from typing import List, Set
 from intervaltree import IntervalTree
 from nltk.corpus import stopwords
 
-from medtext_base.utils import intersect
+from medtext_commons.utils import intersect
 
 
 class NERMatch:

@@ -2,7 +2,7 @@ from typing import List
 
 from bioc import BioCAnnotation, BioCPassage
 
-from medtext_base.core import BioCProcessor
+from medtext_commons.core import BioCProcessor
 from radtext.models.constants import UNCERTAINTY, NEGATION, POSITIVE
 
 

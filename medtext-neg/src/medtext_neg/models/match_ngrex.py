@@ -4,7 +4,7 @@ import networkx as nx
 import bioc
 import yaml
 
-from medtext_base.utils import intersect
+from medtext_commons.utils import intersect
 from medtext_neg.models import ngrex, semgraph
 from radtext.models.constants import UNCERTAINTY, NEGATION
 

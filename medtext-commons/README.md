@@ -1,4 +1,4 @@
-This module provides common functions
+This module provides a collection of common functions for MedText
 
 ## Links
 

@@ -14,7 +14,7 @@ import docopt
 import pandas as pd
 
 from medtext_conv.models.bioc_cdm_converter import convert_note_nlp_table_to_bioc
-from medtext_base.cmd.utils import process_options
+from medtext_commons.cmd_utils import process_options
 
 
 def main():

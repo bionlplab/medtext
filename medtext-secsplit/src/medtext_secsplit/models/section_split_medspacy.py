@@ -2,8 +2,8 @@ import bioc
 import tqdm
 from bioc import BioCSentence, BioCCollection, BioCDocument, BioCPassage
 
-from medtext_base.core import BioCProcessor
-from medtext_base.utils import is_passage_empty, strip_passage
+from medtext_commons.core import BioCProcessor
+from medtext_commons.utils import is_passage_empty, strip_passage
 
 
 class BioCSectionSplitterMedSpacy(BioCProcessor):

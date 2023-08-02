@@ -15,7 +15,7 @@ import subprocess
 import bioc
 import docopt
 
-from medtext_base.cmd.utils import process_options, process_file
+from medtext_commons.cmd.utils import process_options, process_file
 from medtext_deid.models.deid_bert import BioCDeidBert
 
 

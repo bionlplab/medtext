@@ -21,8 +21,8 @@ import docopt
 import spacy
 import yaml
 
-from medtext_base.cmd.utils import process_options, process_file
-from medtext_base.download_utils import request_medtext
+from medtext_commons.cmd.utils import process_options, process_file
+from medtext_commons.download_utils import request_medtext
 from medtext_ner.models.ner_regex import NerRegExExtractor, BioCNerRegex, NerRegexPattern
 from medtext_ner.models.ner_spacy import NerSpacyExtractor, BioCNerSpacy
 from medtext_ner.models.radlex import RadLex4

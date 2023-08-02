@@ -21,7 +21,7 @@ import tqdm
 import yaml
 
 # Numeric constants
-from medtext_base.cmd.utils import process_options
+from medtext_commons.cmd.utils import process_options
 
 POSITIVE = 'p'
 NEGATIVE = 'n'

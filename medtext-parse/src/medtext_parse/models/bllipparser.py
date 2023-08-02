@@ -7,8 +7,8 @@ from typing import Union, List
 from bioc import BioCSentence, BioCPassage, BioCAnnotation
 from bllipparser import RerankingParser
 
-from medtext_base.core import BioCProcessor
-from medtext_base.utils import is_ner
+from medtext_commons.core import BioCProcessor
+from medtext_commons.utils import is_ner
 
 
 DEFAULT_BLLLIP_MODEL = str(Path.home() / '.radtext/resources/bllipparser/BLLIP-GENIA-PubMed')
