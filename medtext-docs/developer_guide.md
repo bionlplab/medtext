@@ -50,13 +50,13 @@ More information can be found at <https://www.scivision.dev/python-windows-visua
 
 ### Compile from source
 
-radtext is actively developed on [GitHub repository](https://github.com/bionlplab/radtext).
-The other way to install radtext is to clone its GitHub repository.
+medtext is actively developed on [GitHub repository](https://github.com/bionlplab/medtext).
+The other way to install medtext is to clone its GitHub repository.
 
 ```shell
 # Checkout repository
-$ git clone https://github.com/bionlplab/radtext.git
-$ cd radtext
+$ git clone https://github.com/bionlplab/medtext.git
+$ cd medtext
 
 # Set up Python environment
 $ python -m venv venv
@@ -68,7 +68,7 @@ $ pip install -r requirements.txt
 
 # Install packages
 $ python -m spacy download en_core_web_sm
-$ python radtext/cmd/download.py all
+$ python medtext/cmd/download.py all
 ```
 
 ## Create this documentation
@@ -81,7 +81,13 @@ $ cd docs
 $ make html
 ```
 
-## Publish RadText to PyPI and TestPyPI
+## Publish MedText to PyPI and TestPyPI
+
+You need two more packages to publish the software to pypi.
+
+```shell
+$ pip install build twine
+```
 
 First, you need a PyPI user account. You can create an account using the
 form on the PyPI/TestPyPI website.
@@ -100,17 +106,17 @@ $ python -m build
 Using local package with pip
 
 ```shell
-$ pip install --force-reinstall --no-deps /path/to/whl
+$ pip install -e .
 ```
 
 Using TestPyPI with pip
 
 ```shell
 $ twine upload --repository testpypi dist/*
-$ pip install --index-url https://test.pypi.org/simple/ radtext
+$ pip install --index-url https://test.pypi.org/simple/ medtext
 ```
 
-### Validate RadText
+### Validate MedText
 
 ```shell
 $ bash tests/validate.sh
@@ -121,6 +127,5 @@ $ bash tests/validate.sh
 Install `pytest` and `pytest-cov`. Then, for each module, run
 
 ```shell
-$ pip install -e .
 $ pytest --cov=. --cov-report=html
 ```

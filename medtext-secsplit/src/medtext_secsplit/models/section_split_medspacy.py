@@ -3,7 +3,7 @@ import tqdm
 from bioc import BioCSentence, BioCCollection, BioCDocument, BioCPassage
 
 from medtext_commons.core import BioCProcessor
-from medtext_commons.utils import is_passage_empty, strip_passage
+from medtext_commons.base_utils import is_passage_empty, strip_passage
 
 
 class BioCSectionSplitterMedSpacy(BioCProcessor):
@@ -24,10 +24,12 @@ class BioCSectionSplitterMedSpacy(BioCProcessor):
         Split one report into sections. Section splitting is a deterministic
         consequence of section titles.
         """
-        def create_passage(text, offset, start, end, title=None) -> BioCPassage:
+        def create_passage(offset, doc, span, title = None) -> BioCPassage:
             passage = BioCPassage()
             passage.infons['nlp_system'] = self.nlp_system
             passage.infons['nlp_date_time'] = self.nlp_date_time
+            start = doc[span[0]].idx
+            end = doc[span[1] - 1].idx + len(doc[span[1] - 1].text_with_ws)
             passage.offset = start + offset
             passage.text = text[start:end]
             if title is not None:
@@ -41,11 +43,9 @@ class BioCSectionSplitterMedSpacy(BioCProcessor):
 
         anns = []
         medspacy_doc = self.nlp(text)
-        for i, title in enumerate(medspacy_doc._.section_titles):
-            print(title)
-            if len(title) == 0:
-                continue
-            passage = create_passage(text, offset, title.start_char, title.end_char, title.text)
+        for i, section in enumerate(medspacy_doc._.sections):
+            # title
+            passage = create_passage(offset, medspacy_doc, section.title_span, section.category)
             if not is_passage_empty(passage):
                 doc.add_passage(passage)
                 ann = bioc.BioCAnnotation()
@@ -55,11 +55,10 @@ class BioCSectionSplitterMedSpacy(BioCProcessor):
                 ann.infons['type'] = passage.infons['type']
                 ann.infons['nlp_system'] = self.nlp_system
                 ann.infons['nlp_date_time'] = self.nlp_date_time
-                ann.add_location(bioc.BioCLocation(offset + title.start_char, title.end_char - title.start_char))
+                ann.add_location(bioc.BioCLocation(passage.offset, len(passage.text)))
                 anns.append(ann)
-
-        for body in medspacy_doc._.section_bodies:
-            passage = create_passage(text, offset, body.start_char, body.end_char)
+            # body
+            passage = create_passage(offset, medspacy_doc, section.body_span)
             if not is_passage_empty(passage):
                 doc.add_passage(passage)
 

@@ -1,7 +1,7 @@
 # Section Split
 
 This module splits the report into sections. 
-RadText provides two options for section split.
+We provide two options for section split.
 
 ## secsplit:regex
 
@@ -14,7 +14,7 @@ The **rule-based method** uses a list of section titles to split the notes.
 | --section-titles | `$resources/section_titles.txt`  | List of section titles |
 
 ```shell
-$ radtext-secsplit regex -i /path/to/input.xml -o /path/to/output.xml
+$ medtext-secsplit regex -i /path/to/input.xml -o /path/to/output.xml
 ```
 
 ```python
@@ -36,13 +36,14 @@ matching of the section titles with default rules adapted from
 expanded through practice.
 
 ```shell
-$ radtext-secsplit medspacy -i /path/to/input.xml -o /path/to/output.xml
+$ medtext-secsplit medspacy -i /path/to/input.xml -o /path/to/output.xml
 ```
 
 ```python
 import medspacy
 from medtext_secsplit.models.section_split_medspacy import BioCSectionSplitterMedSpacy
 
-nlp = medspacy.load(enable=["sectionizer"])
+nlp = medspacy.load()
+nlp.add_pipe("medspacy_sectionizer")
 processor = BioCSectionSplitterMedSpacy(nlp)
 ```

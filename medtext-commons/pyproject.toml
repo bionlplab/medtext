@@ -3,7 +3,7 @@ requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "medtext-base"
+name = "medtext-commons"
 # Versions should comply with PEP440.  For a discussion on single-sourcing
 # the version across setup.py and the project code, see
 # https://packaging.python.org/en/latest/single_source_version.html
@@ -15,7 +15,7 @@ authors = [
 description = "MedText is a high-performance Python Clinic Text Analysis System."
 readme = "README.md"
 keywords = ["clinical note", "text-mining", "NLP", "EHR note"]
-requires-python = ">=3.7"
+requires-python = ">=3.8"
 # See https://pypi.org/classifiers/
 classifiers = [
     "Development Status :: 1 - Planning",

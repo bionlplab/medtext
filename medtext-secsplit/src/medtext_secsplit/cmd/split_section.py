@@ -13,7 +13,7 @@ Options:
 import bioc
 import docopt
 
-from medtext_commons.cmd.utils import process_options
+from medtext_commons.cmd_utils import process_options
 from medtext_commons.download_utils import request_medtext
 from medtext_secsplit.models.section_split_regex import BioCSectionSplitterRegex, combine_patterns
 
@@ -31,7 +31,8 @@ def main():
         elif argv['medspacy']:
             import medspacy
             from medtext_secsplit.models.section_split_medspacy import BioCSectionSplitterMedSpacy
-            nlp = medspacy.load(enable=["sectionizer"])
+            nlp = medspacy.load()
+            nlp.add_pipe("medspacy_sectionizer")
             processor = BioCSectionSplitterMedSpacy(nlp)
         elif argv['download']:
             request_medtext(argv['--section-titles'])
