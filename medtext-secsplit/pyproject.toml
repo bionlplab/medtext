@@ -15,7 +15,7 @@ authors = [
 description = "MedText is a high-performance Python Clinic Text Analysis System."
 readme = "README.md"
 keywords = ["clinical note", "text-mining", "NLP", "EHR note"]
-requires-python = ">=3.8, <3.11"
+requires-python = ">=3.8"
 # See https://pypi.org/classifiers/
 classifiers = [
     "Development Status :: 1 - Planning",

@@ -1,7 +1,7 @@
 import bioc
 import pytest
 
-from src.medtext_preprocess.models.sentence_split_nltk import split, BioCSSplitterNLTK
+from medtext_ssplit.models.sentence_split_nltk import split, BioCSSplitterNLTK
 
 
 def test_split():
