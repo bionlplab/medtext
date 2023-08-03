@@ -12,11 +12,10 @@ This module splits the report into sentences using
 ## Example Usage
 
 ```shell
-$ radtext-ssplit -i /path/to/input.xml -o /path/to/output.xml
+$ medtext-ssplit -i /path/to/input.xml -o /path/to/output.xml
 ```
 
 ```python
-from src.medtext_preprocess.models.sentence_split_nltk import BioCSSplitterNLTK
-
+from medtext_ssplit.models.sentence_split_nltk import BioCSSplitterNLTK
 processor = BioCSSplitterNLTK(newline=argv['--newline'])
 ```
