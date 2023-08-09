@@ -1,7 +1,7 @@
 import bioc
 import pytest
 
-from radtext.models.deid import BioCDeidPhilter
+from medtext_deid.models.deid_philter import BioCDeidPhilter
 
 
 def test_deid():

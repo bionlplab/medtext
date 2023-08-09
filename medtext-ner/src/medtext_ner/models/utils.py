@@ -4,7 +4,7 @@ from typing import List, Set
 from intervaltree import IntervalTree
 from nltk.corpus import stopwords
 
-from medtext_commons.utils import intersect
+from medtext_commons.base_utils import intersect
 
 
 class NERMatch:
@@ -91,3 +91,5 @@ def filter_stop_words(matches: List[NERMatch], stop_words: Set) -> List[NERMatch
 
 
 STOP_WORDS = set(stopwords.words('english'))
+
+

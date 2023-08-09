@@ -1,6 +1,6 @@
 import tqdm
 from bioc import BioCPassage
-from radtext.models.constants import POSITIVE
+from medtext_neg.models.constants import POSITIVE
 from medtext_commons.core import BioCProcessor
 from medtext_neg.models.match_ngrex import NegGrexPatterns
 from medtext_neg.models.match_regex import NegRegexPatterns

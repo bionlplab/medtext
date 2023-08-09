@@ -3,8 +3,8 @@ from typing import Tuple
 import bioc
 import pytest
 
-from radtext.models.neg import NegRegexPatterns
-from radtext.models.constants import UNCERTAINTY, NEGATION
+from medtext_neg.models.neg import NegRegexPatterns
+from medtext_neg.models.constants import UNCERTAINTY, NEGATION
 
 # negation = Resource_Dir / 'patterns/regex_negation.yml'
 # uncertainty_pre_neg = Resource_Dir / 'patterns/regex_uncertainty_pre_negation.yml'

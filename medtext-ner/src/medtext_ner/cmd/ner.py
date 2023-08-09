@@ -2,7 +2,7 @@
 Usage:
     ner spacy [--overwrite --spacy-model NAME] --radlex FILE -i FILE -o FILE
     ner regex [--overwrite] --phrases FILE -i FILE -o FILE
-    ner download
+    ner download [--spacy-model]
 
 Options:
     --overwrite
@@ -12,51 +12,21 @@ Options:
     --radlex FILE            The RadLex ontology file [default: .radtext/resources/Radlex4.1.xlsx]
     --spacy-model NAME       spaCy trained model [default: en_core_web_sm]
 """
-import logging
-import re
+import subprocess
+import sys
 from pathlib import Path
-from typing import Pattern
 import bioc
 import docopt
 import spacy
-import yaml
 
-from medtext_commons.cmd.utils import process_options, process_file
+from medtext_commons.cmd_utils import process_options, process_file
 from medtext_commons.download_utils import request_medtext
-from medtext_ner.models.ner_regex import NerRegExExtractor, BioCNerRegex, NerRegexPattern
+from medtext_ner.models.ner_regex import NerRegExExtractor, BioCNerRegex, load_yml
 from medtext_ner.models.ner_spacy import NerSpacyExtractor, BioCNerSpacy
 from medtext_ner.models.radlex import RadLex4
 
-
 DEFAULT_PHRASES = Path.home() / '.radtext/resources/cxr14_phrases_v2.yml'
 DEFAULT_RADLEX = Path.home() / '.radtext/resources/Radlex4.1.xlsx'
-
-
-def load_yml(pathname):
-    def ner_compile(pattern_str: str) -> Pattern:
-        pattern_str = re.sub(' ', r'\\s+', pattern_str)
-        return re.compile(pattern_str, re.I | re.M)
-
-    with open(pathname) as fp:
-        phrases = yaml.load(fp, yaml.FullLoader)
-
-    patterns = []
-    for concept_id, (concept, v) in enumerate(phrases.items()):
-        npattern = NerRegexPattern()
-        npattern.concept_id = str(concept_id)
-        npattern.concept = concept
-
-        if 'include' in v:
-            npattern.include_patterns += [ner_compile(p) for p in v['include']]
-        else:
-            raise ValueError('%s: No patterns' % concept)
-
-        if 'exclude' in v:
-            npattern.exclude_patterns += [ner_compile(p) for p in v['exclude']]
-
-        patterns.append(npattern)
-    logging.debug("%s: Loading %s phrases.", pathname, len(patterns))
-    return patterns
 
 
 def main():
@@ -77,6 +47,7 @@ def main():
         elif argv['download']:
             request_medtext(DEFAULT_PHRASES)
             request_medtext(DEFAULT_RADLEX)
+            subprocess.check_call([sys.executable, '-m', 'spacy', 'download', argv['--spacy-model']])
         else:
             raise KeyError
     except KeyError as e:

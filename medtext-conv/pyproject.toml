@@ -40,3 +40,8 @@ dependencies = {file = ["requirements.txt"]}
 [tool.setuptools.packages.find]
 where = ["src"]
 exclude = ["tests*"]
+
+[project.scripts]
+medtext-csv2bioc = "medtext_conv.cmd.csv2bioc:main"
+medtext-cdm2bioc = "medtext_conv.cmd.cdm2bioc:main"
+medtext-bioc2cdm = "medtext_conv.cmd.bioc2cdm:main"

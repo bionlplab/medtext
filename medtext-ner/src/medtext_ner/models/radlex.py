@@ -6,7 +6,7 @@ import pandas as pd
 import tqdm
 from spacy.matcher import PhraseMatcher
 
-from medtext_neg.models.ner_spacy import NerSpacyPhraseMatchers
+from medtext_ner.models.ner_spacy import NerSpacyPhraseMatchers
 
 
 def get_class_id(url: str) -> str:

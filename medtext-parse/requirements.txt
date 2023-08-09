@@ -1,4 +1,6 @@
 bioc>=2.0
 docopt
-medtext_base
-nltk
+medtext_commons
+PyStanfordDependencies
+JPype1==0.6.3
+bllipparser==2021.11.7

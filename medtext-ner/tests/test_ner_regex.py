@@ -1,7 +1,6 @@
 import bioc
 
-from medtext_neg.models.ner_regex import NerRegExExtractor, BioCNerRegex
-from medtext_neg.cmd.ner import load_yml
+from medtext_ner.models.ner_regex import NerRegExExtractor, BioCNerRegex, load_yml
 
 
 def test_ner(resource_dir):

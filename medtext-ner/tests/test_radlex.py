@@ -2,7 +2,9 @@ import pytest
 import spacy
 from spacy.matcher import PhraseMatcher
 
-from medtext_neg.models.radlex import RadLex4
+from medtext_ner.models.radlex import RadLex4
+
+SPACY_MODEL = 'en_core_web_sm'
 
 
 @pytest.fixture
@@ -20,7 +22,7 @@ def test_graph(radlex):
 
 
 def test_spacy_matcher():
-    nlp = spacy.load('en_core_web_sm', exclude=['ner', 'parser', 'senter'])
+    nlp = spacy.load(SPACY_MODEL, exclude=['ner', 'parser', 'senter'])
     text_matcher = PhraseMatcher(nlp.vocab, attr='ORTH')
     lemma_matcher = PhraseMatcher(nlp.vocab, attr='LEMMA')
 
@@ -43,7 +45,7 @@ def test_spacy_matcher():
 
 
 def test_matcher2(radlex):
-    nlp = spacy.load('en_core_web_sm', exclude=['ner', 'parser', 'senter'])
+    nlp = spacy.load(SPACY_MODEL, exclude=['ner', 'parser', 'senter'])
     matchers = radlex.get_spacy_matchers(nlp)
     text = """No findings to account for symptoms"""
     doc = nlp(text)

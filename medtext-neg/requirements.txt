@@ -1,4 +1,6 @@
 bioc>=2.0
 docopt
-medtext_base
+medtext_commons
 nltk
+ply
+cachetools

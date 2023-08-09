@@ -13,7 +13,7 @@ import bioc
 import docopt
 import nltk
 
-from medtext_commons.cmd.utils import process_options, process_file
+from medtext_commons.cmd_utils import process_options, process_file
 from medtext_deid.models.deid_philter import BioCDeidPhilter
 
 

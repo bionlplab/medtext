@@ -1,6 +1,45 @@
 [build-system]
-requires = [
-    "setuptools>=42",
-    "wheel"
-]
+requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
+
+[project]
+name = "medtext-neg"
+# Versions should comply with PEP440.  For a discussion on single-sourcing
+# the version across setup.py and the project code, see
+# https://packaging.python.org/en/latest/single_source_version.html
+version = "0.1.dev1"
+# Author details
+authors = [
+    {name = "Yifan Peng", email = "yip4002@med.cornell.edu"}
+]
+description = "MedText is a high-performance Python Clinic Text Analysis System."
+readme = "README.md"
+keywords = ["clinical note", "text-mining", "NLP", "EHR note"]
+requires-python = ">=3.8"
+# See https://pypi.org/classifiers/
+classifiers = [
+    "Development Status :: 1 - Planning",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX :: Linux",
+    "Topic :: Text Processing",
+    "Topic :: Software Development",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+    "Programming Language :: Python :: 3"
+]
+dynamic = ["dependencies"]
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
+[project.urls]
+"Homepage" = "https://github.com/bionlplab/medtext"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+exclude = ["tests*"]
+
+[project.scripts]
+medtext-neg = "medtext_neg.cmd.neg:main"

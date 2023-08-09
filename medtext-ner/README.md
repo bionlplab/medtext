@@ -3,5 +3,5 @@ This module recognizes mention spans of a particular entity type (e.g., abnormal
 ## Links
 
 * [Documentation](https://radtext.readthedocs.io/en/latest/index.html)
-* [MedText homepage](https://github.com/bionlplab/radtext)
+* [MedText homepage](https://github.com/bionlplab/medtext)
 

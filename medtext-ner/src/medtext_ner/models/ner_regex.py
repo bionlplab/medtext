@@ -1,10 +1,13 @@
+import logging
+import re
 from typing import Pattern, List, Generator, Iterable
 
 import bioc
+import yaml
 from bioc import BioCPassage, BioCSentence
 
 from medtext_commons.core import BioCProcessor
-from medtext_neg.models.utils import NERMatch, remove_duplicates, longest_matching, remove_excludes
+from medtext_ner.models.utils import NERMatch, remove_duplicates, longest_matching, remove_excludes
 
 
 class NerRegexPattern:
@@ -95,3 +98,28 @@ class BioCNerRegex(BioCProcessor):
         return sentence
 
 
+def load_yml(pathname):
+    def ner_compile(pattern_str: str) -> Pattern:
+        pattern_str = re.sub(' ', r'\\s+', pattern_str)
+        return re.compile(pattern_str, re.I | re.M)
+
+    with open(pathname) as fp:
+        phrases = yaml.load(fp, yaml.FullLoader)
+
+    patterns = []
+    for concept_id, (concept, v) in enumerate(phrases.items()):
+        npattern = NerRegexPattern()
+        npattern.concept_id = str(concept_id)
+        npattern.concept = concept
+
+        if 'include' in v:
+            npattern.include_patterns += [ner_compile(p) for p in v['include']]
+        else:
+            raise ValueError('%s: No patterns' % concept)
+
+        if 'exclude' in v:
+            npattern.exclude_patterns += [ner_compile(p) for p in v['exclude']]
+
+        patterns.append(npattern)
+    logging.debug("%s: Loading %s phrases.", pathname, len(patterns))
+    return patterns

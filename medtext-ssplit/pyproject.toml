@@ -40,3 +40,6 @@ dependencies = {file = ["requirements.txt"]}
 [tool.setuptools.packages.find]
 where = ["src"]
 exclude = ["tests*"]
+
+[project.scripts]
+medtext-ssplit = "medtext_ssplit.cmd.ssplit:main"

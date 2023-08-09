@@ -4,7 +4,7 @@ from typing import List
 import yaml
 
 from bioc import BioCPassage, BioCAnnotation
-from radtext.models.constants import UNCERTAINTY, NEGATION
+from medtext_neg.models.constants import UNCERTAINTY, NEGATION
 
 
 class NegRegexPattern:
