@@ -1,18 +1,8 @@
-<!-- ![RadText](https://github.com/yfpeng/radtext/blob/master/radtext.png?raw=true) -->
-
-<img src="https://github.com/yfpeng/radtext/blob/master/radtext.png?raw=true" alt="RadText" width="500"/>
-
-[![Build status](https://github.com/bionlplab/radtext/actions/workflows/pytest.yml/badge.svg)](https://github.com/bionlplab/radtext/)
-[![Latest version on PyPI](https://img.shields.io/pypi/v/radtext.svg)](https://pypi.python.org/pypi/radtext)
-[![Downloads](https://img.shields.io/pypi/dm/radtext.svg)](https://pypi.python.org/pypi/radtext)
-[![License](https://img.shields.io/pypi/l/radtext.svg)](https://opensource.org/licenses/MIT)
-[![codecov](https://codecov.io/gh/bionlplab/radtext/branch/after_paper/graph/badge.svg?token=m4mJ9fD88s)](https://codecov.io/gh/bionlplab/radtext)
-[![Documentation Status](https://readthedocs.org/projects/radtext/badge/?version=latest)](https://radtext.readthedocs.io/en/latest/?badge=latest)
-[![Pythong version](https://img.shields.io/pypi/pyversions/radtext)](https://pypi.python.org/pypi/radtext)
+<img src="https://github.com/bionlplab/medtext/blob/master/medtext.png?raw=true" alt="MedText" width="500"/>
 
 ## Purpose
 
-RadText is a high-performance Python Radiology Text Analysis System.
+MedText is a high-performance Python Clinical Text Analysis System.
 
 ## Prerequisites
 
@@ -27,28 +17,28 @@ $ sudo apt-get install python3-dev build-essential default-java
 
 ## Quickstart
 
-The latest radtext releases are available over
-[pypi](https://pypi.org/project/radtext/).
+The latest medtext releases are available over
+[pypi](https://pypi.org/project/medtext/).
 
-Using pip, RadText releases are available as source packages and binary wheels.
+Using pip, medtext releases are available as source packages and binary wheels.
 It is also generally recommended installing packages in a virtual environment to
 avoid modifying system state:
 
 ```shell
-$ python -m venv venv
-$ source venv/bin/activate
+$ python -m venv medtext-venv
+$ source medtext-venv/bin/activate
 $ pip install -U pip setuptools wheel
-$ pip install -U radtext
+$ pip install -U medtext
 $ python -m spacy download en_core_web_sm
-$ radtext-download --all
+$ medtext-download --all
 ```
 
-To see RadText's pipeline in action, you can launch the Python interactive
+To see medtext's pipeline in action, you can launch the Python interactive
 interpreter, and try the following commands:
 
 ```python
-import radtext
-nlp = radtext.Pipeline()
+import medtext
+nlp = medtext.Pipeline()
 with open('/PATH/TO/BIOC_FILE.xml') as fp:
     doc = bioc.load(fp)
     
@@ -56,24 +46,24 @@ annotations = nlp(doc)
 print(annotations)
 ```
 
-RadText also supports command-line interfaces for specific NLP tasks (e.g.,
+medtext also supports command-line interfaces for specific NLP tasks (e.g.,
 de-identification, sentence split, or named entity recognition).
 
 ```shell
-$ radtext-deid --repl=X -i /path/to/input.xml -o /path/to/output.xml
-$ radtext-ssplit -i /path/to/input.xml -o /path/to/output.xml
+$ medtext-deid --repl=X -i /path/to/input.xml -o /path/to/output.xml
+$ medtext-ssplit -i /path/to/input.xml -o /path/to/output.xml
 $ radext-ner spacy --radlex /path/to/Radlex4.1.xlsx -i /path/to/input.xml -o /path/to/output.xml
 ```
 
 ## Documentation
 
 You will find complete documentation at our [Read the Docs
-site](https://radtext.readthedocs.io/en/latest/index.html).
+site](https://medtext.readthedocs.io/en/latest/index.html).
 
 ## Contributing
 
-You can find information about contributing to RadText at our [Contribution
-page](https://radtext.readthedocs.io/en/latest/contributing.html).
+You can find information about contributing to medtext at our [Contribution
+page](https://medtext.readthedocs.io/en/latest/contributing.html).
 
 ## Acknowledgment
 
@@ -82,11 +72,11 @@ This work is supported by the National Library of Medicine under Award No.
 Medicine.
 
 You can find Acknowledgment information at our [Acknowledgment
-page](https://radtext.readthedocs.io/en/latest/acknowledgments.html).
+page](https://medtext.readthedocs.io/en/latest/acknowledgments.html).
 
 ## License
 
 Copyright BioNLP Lab at Weill Cornell Medicine, 2022.
 
-Distributed under the terms of the [MIT](https://github.com/bionlplab/radtext/blob/master/LICENSE) license, 
-RadText is free and open source software.
+Distributed under the terms of the [MIT](https://github.com/bionlplab/medtext/blob/master/LICENSE) license, 
+medtext is free and open source software.

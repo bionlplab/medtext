@@ -9,7 +9,7 @@ Options:
     -o FILE
     -i FILE
     --phrases FILE           Phrase patterns
-    --radlex FILE            The RadLex ontology file [default: .radtext/resources/Radlex4.1.xlsx]
+    --radlex FILE            The RadLex ontology file [default: .medtext/resources/Radlex4.1.xlsx]
     --spacy-model NAME       spaCy trained model [default: en_core_web_sm]
 """
 import subprocess
@@ -25,8 +25,8 @@ from medtext_ner.models.ner_regex import NerRegExExtractor, BioCNerRegex, load_y
 from medtext_ner.models.ner_spacy import NerSpacyExtractor, BioCNerSpacy
 from medtext_ner.models.radlex import RadLex4
 
-DEFAULT_PHRASES = Path.home() / '.radtext/resources/cxr14_phrases_v2.yml'
-DEFAULT_RADLEX = Path.home() / '.radtext/resources/Radlex4.1.xlsx'
+DEFAULT_PHRASES = Path.home() / '.medtext/resources/cxr14_phrases_v2.yml'
+DEFAULT_RADLEX = Path.home() / '.medtext/resources/Radlex4.1.xlsx'
 
 
 def main():

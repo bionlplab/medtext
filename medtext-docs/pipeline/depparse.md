@@ -4,7 +4,7 @@ Dependency Parsing is the process to analyze the grammatical structure in a
 sentence and find out related words as well as the type of the relationship
 between them.
 
-RadText utilizes the Universal Dependency Graph
+medtext utilizes the Universal Dependency Graph
 ([UDG](https://universaldependencies.org/)) to describe the grammatical
 relationships in a sentence. UDG is a directed graph, which represents all
 universal dependency information in a sentence. The vertices in a UDG represent
@@ -16,7 +16,7 @@ sentence and the dependency relation between words.
 
 * **spaCy**: See `Text preprocessing` > `spaCy`
 * **Stanza**: See `Text preprocessing` > `Stanza` 
-* **Bllip**: RadText obtains the universal dependencies by applying the 
+* **Bllip**: medtext obtains the universal dependencies by applying the 
 [Stanford dependency converter](https://github.com/dmcc/PyStanfordDependencies) 
 with the `CCProcessed` and `Universal` option. 
 

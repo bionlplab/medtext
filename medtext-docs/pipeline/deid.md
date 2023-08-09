@@ -14,10 +14,10 @@ from the reports.
 ### Example Usage
 
 ```shell
-$ radtext-deid --repl=X -i /path/to/input.xml -o /path/to/output.xml
+$ medtext-deid --repl=X -i /path/to/input.xml -o /path/to/output.xml
 ```
 
 ```python
-from radtext.models.deid import BioCDeidPhilter
+from medtext_deid.models.deid_philter import BioCDeidPhilter
 processor = BioCDeidPhilter(argv['--repl'])
 ```

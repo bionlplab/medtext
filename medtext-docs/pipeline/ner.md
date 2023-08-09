@@ -2,7 +2,7 @@
 
 The named entity recognition (NER) module recognizes mention spans of a
 particular entity type (e.g., abnormal findings) from the reports.
-RadText provides two sub-modules for NER.
+medtext provides two sub-modules for NER.
 
 ## ner:regex
 
@@ -42,7 +42,7 @@ preferred name. Each concept should contain three attributes: `concept_id`, `inc
 `exclude` contains the regular expressions that the concept will not match, even if its substring will match the regular
 expressions in the `include`
 
-Using the following example, RadText will recognize "emphysema", but reject "subcutaneous emphysema" though "emphysema"
+Using the following example, medtext will recognize "emphysema", but reject "subcutaneous emphysema" though "emphysema"
 is part of "subcutaneous emphysema".
 
 ```yaml
@@ -57,7 +57,7 @@ Emphysema:
 ## ner:spacy
 
 * [**SpaCy's PhraseMatcher**](https://spacy.io/api/phrasematcher) provides another
-way to efficiently match large terminology lists. RadText uses PhraseMatcher to
+way to efficiently match large terminology lists. medtext uses PhraseMatcher to
 recognize concepts in the [RadLex ontology](http://radlex.org/).
 
 ### Options

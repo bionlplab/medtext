@@ -1,16 +1,15 @@
 # Quickstart
 
-This section runs through a pipeline for common tasks to analyze the radiology
-reports.
+This section runs through a pipeline for common tasks to analyze the clinical notes and reports.
 
 ## Working with data
     
 See [this doc](pipeline/data_conversion.md).
 
-## Running RadText 
+## Running medtext 
 
 You can configure the input file names in `run_pipeline.sh`. Then use the
-following command to run RadText's pipeline:
+following command to run medtext's pipeline:
 
 ```bash
 $ bash run_pipeline.sh
@@ -28,7 +27,7 @@ sentence. The content and format of these files should be self-explained.
 
 ## Building a Pipeline
 
-RadText provides simple, flexible, and unified interfaces for downloading and
+medtext provides simple, flexible, and unified interfaces for downloading and
 running various NLP models. At a high level, to start annotating text, you need
 to first initialize a Pipeline, which pre-loads and chains up a series of
 BioCProcessor, with each processor performing a specific NLP task (e.g.,
@@ -39,14 +38,14 @@ interface. Additionally, when building a pipeline, you can add customized
 options that select annotators, specify model path, or set variables. 
 Here we aim to provide examples that cover common use cases.
 For all available options in the download and pipeline interface, please refer
-to the [Advanced Usage](https://radtext.readthedocs.io/en/latest/user_guide.html).
+to the [Advanced Usage](https://medtext.readthedocs.io/en/latest/user_guide.html).
 
 The following minimal example shows how to download and load default processors
 into a pipeline for radiology reports:
 
 ```python
-radtext.download()
-nlp = radtext.Pipeline()
+medtext.download()
+nlp = medtext.Pipeline()
 ```
 
 ```{note}
@@ -61,7 +60,7 @@ of string. For example, here we only load the default de-identification and
 ssplit processors:
 
 ```python
-nlp = radtext.Pipeline(annotators=['deid:philter', 'ssplit'])
+nlp = medtext.Pipeline(annotators=['deid:philter', 'ssplit'])
 ```
 
 ### Annotating text
@@ -109,4 +108,4 @@ for doc in collection.documents:
 -----
 
 Read more about [Advanced
-Usage](https://radtext.readthedocs.io/en/latest/user_guide.html).
+Usage](https://medtext.readthedocs.io/en/latest/user_guide.html).

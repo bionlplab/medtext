@@ -18,7 +18,7 @@ import tqdm
 import yaml
 
 # Numeric constants
-from radtext.models.constants import UNCERTAINTY, NEGATION
+from medtext_neg.models.constants import UNCERTAINTY, NEGATION
 
 POSITIVE = 'p'
 NEGATIVE = 'n'

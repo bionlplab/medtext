@@ -8,8 +8,6 @@ Options:
     -i FILE
     --start_with_findings
 """
-import sys
-# sys.path.append('../../../../../radtext/src/radtext')
 import collections
 import logging
 from typing import Dict, Set
@@ -21,7 +19,7 @@ import tqdm
 import yaml
 
 # Numeric constants
-from medtext_commons.cmd.utils import process_options
+from medtext_commons.cmd_utils import process_options
 
 POSITIVE = 'p'
 NEGATIVE = 'n'

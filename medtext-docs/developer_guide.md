@@ -2,7 +2,7 @@
 
 ## Development Installation
 
-These are development setup. If you are a contributor to RadText, it might a be
+These are development setup. If you are a contributor to medtext, it might a be
 a good idea to follow these guidelines as well.
 
 To follow these instructions you will need a Unix/Linux system, or

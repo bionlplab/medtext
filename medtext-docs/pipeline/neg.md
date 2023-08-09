@@ -1,6 +1,6 @@
 # Negation Detection
 
-For negation detection, RadText employs
+For negation detection, medtext employs
 [NegBio](https://github.com/bionlplab/negbio2), which utilizes universal
 dependencies for pattern definition and subgraph matching for graph traversal
 search so that the scope for negation/uncertainty is not limited to the fixed
@@ -22,8 +22,8 @@ $ radext-neg -i /path/to/input.xml -o /path/to/output.xml
 
 ```python
 from medtext_neg.models.match_ngrex import NegGrexPatterns
-from radtext.models.neg import NegRegexPatterns
-from radtext.models.neg import NegCleanUp
+from medtext_neg.models.neg import NegRegexPatterns
+from medtext_neg.models.neg import NegCleanUp
 from medtext_neg.models.neg import BioCNeg
 
 regex_actor = NegRegexPatterns()

@@ -9,7 +9,7 @@ from bioc import BioCPassage, BioCSentence
 
 
 class BioCDeidBert(BioCProcessor):
-    def __init__(self, repl: str = 'X', model_path: str = '~/.radtext/bert_deid_model'):
+    def __init__(self, repl: str = 'X', model_path: str = '~/.medtext/bert_deid_model'):
         super(BioCDeidBert, self).__init__('deid:bert')
         self.deid_model = Transformer(os.path.expanduser(model_path))
         self.repl = repl

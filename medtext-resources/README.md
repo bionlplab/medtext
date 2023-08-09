@@ -1,3 +1,3 @@
-# Radtext resources
+# medtext resources
 
-This repo contains resources necessary to the [RadText](https://github.com/bionlplab/radtex).
+This repo contains resources necessary to the [medtext](https://github.com/bionlplab/medtext).

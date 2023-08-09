@@ -5,6 +5,6 @@ the report ids, and column `note_text` stores the reports.
 
 ## Links
 
-* [Documentation](https://radtext.readthedocs.io/en/latest/index.html)
+* [Documentation](https://medtext.readthedocs.io/en/latest/index.html)
 * [Homepage](https://github.com/bionlplab/medtext)
 

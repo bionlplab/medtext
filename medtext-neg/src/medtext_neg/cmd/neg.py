@@ -4,8 +4,8 @@ Usage:
     neg download
 
 Options:
-    --regex_patterns FILE               [default: .radtext/resources/patterns/regex_patterns.yml]
-    --ngrex_patterns FILE               [default: .radtext/resources/patterns/ngrex_patterns.yml]
+    --regex_patterns FILE               [default: .medtext/resources/patterns/regex_patterns.yml]
+    --ngrex_patterns FILE               [default: .medtext/resources/patterns/ngrex_patterns.yml]
     --overwrite
     --sort_anns
     -o FILE
@@ -19,24 +19,24 @@ from medtext_commons.download_utils import request_medtext
 from medtext_commons.core import BioCPipeline
 
 """
-    --regex_negation FILE               [default: .radtext/resources/patterns/regex_negation.yml]
-    --regex_uncertainty_pre_neg FILE    [default: .radtext/resources/patterns/regex_uncertainty_pre_negation.yml]
-    --regex_uncertainty_post_neg FILE   [default: .radtext/resources/patterns/regex_uncertainty_post_negation.yml]
-    --regex_double_neg FILE             [default: .radtext/resources/patterns/regex_double_negation.yml]
-    --ngrex_negation FILE               [default: .radtext/resources/patterns/ngrex_negation.yml]
-    --ngrex_uncertainty_pre_neg FILE    [default: .radtext/resources/patterns/ngrex_uncertainty_pre_negation.yml]
-    --ngrex_uncertainty_post_neg FILE   [default: .radtext/resources/patterns/ngrex_uncertainty_post_negation.yml]
-    --ngrex_double_neg FILE             [default: .radtext/resources/patterns/ngrex_double_negation.yml]
+    --regex_negation FILE               [default: .medtext/resources/patterns/regex_negation.yml]
+    --regex_uncertainty_pre_neg FILE    [default: .medtext/resources/patterns/regex_uncertainty_pre_negation.yml]
+    --regex_uncertainty_post_neg FILE   [default: .medtext/resources/patterns/regex_uncertainty_post_negation.yml]
+    --regex_double_neg FILE             [default: .medtext/resources/patterns/regex_double_negation.yml]
+    --ngrex_negation FILE               [default: .medtext/resources/patterns/ngrex_negation.yml]
+    --ngrex_uncertainty_pre_neg FILE    [default: .medtext/resources/patterns/ngrex_uncertainty_pre_negation.yml]
+    --ngrex_uncertainty_post_neg FILE   [default: .medtext/resources/patterns/ngrex_uncertainty_post_negation.yml]
+    --ngrex_double_neg FILE             [default: .medtext/resources/patterns/ngrex_double_negation.yml]
 """
 import docopt
-from medtext_commons.cmd.utils import process_options, process_file
+from medtext_commons.cmd_utils import process_options, process_file
 from medtext_neg.models.match_ngrex import NegGrexPatterns
 from medtext_neg.models.neg import NegRegexPatterns
 from medtext_neg.models.neg_cleanup import NegCleanUp
 from medtext_neg.models.neg import BioCNeg
 
 
-DEFAULT_RADLEX = Path.home() / '.radtext/resources/Radlex4.1.xlsx'
+DEFAULT_RADLEX = Path.home() / '.medtext/resources/Radlex4.1.xlsx'
 
 
 def main():

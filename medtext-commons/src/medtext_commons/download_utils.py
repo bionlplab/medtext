@@ -8,7 +8,7 @@ import requests
 import tqdm
 
 
-MEDTEXT_RESOURCES_GITHUB = 'https://raw.githubusercontent.com/bionlplab/radtext-resources/main/resources'
+MEDTEXT_RESOURCES_GITHUB = 'https://github.com/bionlplab/medtext/tree/main/medtext-resources'
 MedTextPath = NewType('MedTextPath', Union[str, PathLike, bytes])
 
 

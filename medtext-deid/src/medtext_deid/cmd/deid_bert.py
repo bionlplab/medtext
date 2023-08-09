@@ -7,7 +7,7 @@ Options:
     -o FILE
     -i FILE
     --repl CHAR                 PHI replacement char [default: X]
-    --bert-deid-model DIR       [default: ~/.radtext/bert_deid_model]
+    --bert-deid-model DIR       [default: ~/.medtext/bert_deid_model]
 """
 import os
 import subprocess
@@ -15,7 +15,7 @@ import subprocess
 import bioc
 import docopt
 
-from medtext_commons.cmd.utils import process_options, process_file
+from medtext_commons.cmd_utils import process_options, process_file
 from medtext_deid.models.deid_bert import BioCDeidBert
 
 

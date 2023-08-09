@@ -1,7 +1,7 @@
 # Text preprocessing
 
 This module provides sentence split, tokenization, part-of-speech tagging,
-lemmatization and dependency parsing. RadText provides two sub-modules for text preprocessing.
+lemmatization and dependency parsing. medtext provides two sub-modules for text preprocessing.
 
 ## preprocess:spacy
 
@@ -17,7 +17,7 @@ Processing.
 ### Example Usage
 
 ```bash
-$ radtext-preprocess spacy -i /path/to/input.xml -o /path/to/output.xml
+$ medtext-preprocess spacy -i /path/to/input.xml -o /path/to/output.xml
 ```
 
 ```python
@@ -36,7 +36,7 @@ tools for Natural Language Processing.
 ### Example Usage
 
 ```bash
-$ radtext-preprocess stanza -i /path/to/input.xml -o /path/to/output.xml
+$ medtext-preprocess stanza -i /path/to/input.xml -o /path/to/output.xml
 ```
 
 ```python

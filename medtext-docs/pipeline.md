@@ -1,6 +1,6 @@
 # Pipeline
 
-In this section, we introduce in more detail the options of RadText's pipeline.
+In this section, we introduce in more detail the options of medtext's pipeline.
 
 ## De-identification
 
@@ -39,7 +39,7 @@ See [this doc](pipeline/neg.md).
 The final step merges all the labels and produces the output .csv file.
 
 ```shell
-$ python radtext/cmd/collect_neg_labels.py \
+$ python medtext/cmd/collect_neg_labels.py \
     --phrases /path/to/patterns.yml \
     -i /path/to/input.xml \
     -o /path/to/output_file.csv

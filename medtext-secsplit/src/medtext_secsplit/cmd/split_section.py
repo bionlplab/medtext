@@ -5,7 +5,7 @@ Usage:
     split_section download [--section-titles FILE]
 
 Options:
-    --section-titles FILE   List of section titles [default: .radtext/resources/section_titles.txt]
+    --section-titles FILE   List of section titles [default: .medtext/resources/section_titles.txt]
     -o FILE
     -i FILE
     --overwrite

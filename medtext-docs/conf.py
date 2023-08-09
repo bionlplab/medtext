@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-# RadText documentation build configuration file, created by
+# medtext documentation build configuration file, created by
 # sphinx-quickstart on Thu Feb  8 15:24:06 2018.
 #
 # This file is execfile()d with the current directory set to its
@@ -48,8 +48,8 @@ source_suffix = {
 master_doc = 'index'
 
 # General information about the project.
-project = 'RadText'
-copyright = '2022, BioNLP Lab at WCM'
+project = 'medtext'
+copyright = '2023, BioNLP Lab at WCM'
 author = 'Yifan Peng'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -102,7 +102,7 @@ html_static_path = ['_static']
 # -- Options for HTMLHelp output ------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'radtextdoc'
+htmlhelp_basename = 'medtextdoc'
 
 
 # -- Options for LaTeX output ---------------------------------------------
@@ -129,7 +129,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'radtext.tex', 'RadText Documentation',
+    (master_doc, 'medtext.tex', 'medtext Documentation',
      'BioNLP@WCM', 'manual'),
 ]
 
@@ -139,7 +139,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'radtext', 'RadText Documentation',
+    (master_doc, 'medtext', 'medtext Documentation',
      [author], 1)
 ]
 
@@ -150,8 +150,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'radtext', 'RadText Documentation',
-     author, 'radtext', 'RadText is a high-performance radiology report text analysis system.',
+    (master_doc, 'medtext', 'medtext Documentation',
+     author, 'medtext', 'medtext is a high-performance clinical text analysis system.',
      'Miscellaneous'),
 ]
 

@@ -9,7 +9,7 @@ if "%SPHINXBUILD%" == "" (
 )
 set SOURCEDIR=.
 set BUILDDIR=_build
-set SPHINXPROJ=radtext
+set SPHINXPROJ=medtext
 
 if "%1" == "" goto help
 

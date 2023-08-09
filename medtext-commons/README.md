@@ -2,6 +2,6 @@ This module provides a collection of common functions for MedText
 
 ## Links
 
-* [Documentation](https://radtext.readthedocs.io/en/latest/index.html)
-* [Homepage](https://github.com/bionlplab/radtext)
+* [Documentation](https://medtext.readthedocs.io/en/latest/index.html)
+* [Homepage](https://github.com/bionlplab/medtext)
 
