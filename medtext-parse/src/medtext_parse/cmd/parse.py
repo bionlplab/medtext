@@ -1,11 +1,11 @@
 """
 Usage:
-    parse parse [options] -i FILE -o FILE
-    parse download
+    cmd parse [options] -i FILE -o FILE
+    cmd download [--bllip-model DIR]
 
 Options:
     --overwrite
-    --bllip-model DIR       Bllip parser model path [default: ~/.radtext/bllipparser/BLLIP-GENIA-PubMed]
+    --bllip-model DIR       Bllip parser model path [default: ~/.medtext/bllipparser/BLLIP-GENIA-PubMed]
     -o FILE
     -i FILE
     --only-ner              Parse the sentences with NER annotations at the passage level
@@ -15,7 +15,7 @@ from pathlib import Path
 import docopt
 
 import bioc
-from medtext_commons.cmd.utils import process_options, process_file
+from medtext_commons.cmd_utils import process_options, process_file
 from medtext_parse.models.bllipparser import BioCParserBllip
 
 BLLIP_MODEL_URL = 'https://nlp.stanford.edu/~mcclosky/models/BLLIP-GENIA-PubMed.tar.bz2'
@@ -23,6 +23,7 @@ BLLIP_MODEL_URL = 'https://nlp.stanford.edu/~mcclosky/models/BLLIP-GENIA-PubMed.
 
 def main():
     argv = docopt.docopt(__doc__)
+    print(argv)
     process_options(argv)
 
     if argv['parse']:

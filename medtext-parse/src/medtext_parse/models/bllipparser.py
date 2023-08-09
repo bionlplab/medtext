@@ -8,10 +8,10 @@ from bioc import BioCSentence, BioCPassage, BioCAnnotation
 from bllipparser import RerankingParser
 
 from medtext_commons.core import BioCProcessor
-from medtext_commons.utils import is_ner
+from medtext_commons.base_utils import is_ner
 
 
-DEFAULT_BLLLIP_MODEL = str(Path.home() / '.radtext/resources/bllipparser/BLLIP-GENIA-PubMed')
+DEFAULT_BLLLIP_MODEL = str(Path.home() / '.medtext/bllipparser/BLLIP-GENIA-PubMed')
 
 
 def is_punct(text) -> bool:

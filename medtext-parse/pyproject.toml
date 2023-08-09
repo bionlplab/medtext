@@ -42,4 +42,4 @@ where = ["src"]
 exclude = ["tests*"]
 
 [project.scripts]
-medtext-neg = "medtext_neg.cmd.neg:main"
+medtext-parse = "medtext_parse.cmd.parse:main"
