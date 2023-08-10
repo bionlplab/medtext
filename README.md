@@ -28,9 +28,8 @@ avoid modifying system state:
 $ python -m venv medtext-venv
 $ source medtext-venv/bin/activate
 $ pip install -U pip setuptools wheel
-$ pip install -U medtext
-$ python -m spacy download en_core_web_sm
-$ medtext-download --all
+$ pip install -i https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple -r requirements.txt
+$ bash downlad_all.sh
 ```
 
 To see medtext's pipeline in action, you can launch the Python interactive

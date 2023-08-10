@@ -1,8 +1,8 @@
 """
 Usage:
-    preprocess stanza [options] -i FILE -o FILE
+    preprocess stanza [--overwrite] -i FILE -o FILE
     preprocess spacy [--overwrite --spacy-model NAME] -i FILE -o FILE
-    preprocess download spacy [--spacy-model]
+    preprocess download spacy [--spacy-model=NAME]
     preprocess download stanza
 
 Options:
@@ -24,17 +24,32 @@ from medtext_preprocess.models.preprocess_spacy import BioCSpacy
 from medtext_preprocess.models.preprocess_stanza import BioCStanza
 
 
+def download(argv):
+    if argv['spacy']:
+        print('Downloading: space %s' % argv['--spacy-model'])
+        subprocess.check_call([sys.executable, '-m', 'spacy', 'download', argv['--spacy-model']])
+    elif argv['stanza']:
+        print('Downloading: Stanza en')
+        stanza.download('en')
+    else:
+        raise KeyError
+
+
 def main():
     argv = docopt.docopt(__doc__)
     process_options(argv)
 
-    if argv['stanza']:
+    if argv['download']:
+        download(argv)
+        exit(1)
+    elif argv['stanza']:
         try:
             nlp = stanza.Pipeline('en', processors='tokenize,pos,lemma,depparse')
         except FileNotFoundError:
             print('Install spacy model using \'python -m spacy download en_core_web_sm\'')
             return
         processor = BioCStanza(nlp)
+        process_file(argv['-i'], argv['-o'], processor, bioc.DOCUMENT)
     elif argv['spacy']:
         try:
             nlp = spacy.load(argv['--spacy-model'])
@@ -42,19 +57,9 @@ def main():
             print('Install spacy model using \'python -m spacy download en_core_web_sm\'')
             return
         processor = BioCSpacy(nlp)
-    elif argv['download']:
-        if argv['spacy']:
-            print('Downloading: space %s' % argv['--spacy-model'])
-            subprocess.check_call([sys.executable, '-m', 'spacy', 'download', argv['--spacy-model']])
-        elif argv['stanza']:
-            print('Downloading: Stanza en')
-            stanza.download('en')
-        else:
-            raise KeyError
+        process_file(argv['-i'], argv['-o'], processor, bioc.DOCUMENT)
     else:
         raise KeyError
-
-    process_file(argv['-i'], argv['-o'], processor, bioc.DOCUMENT)
 
 
 if __name__ == '__main__':

@@ -5,11 +5,13 @@ Usage:
     split_section download [--section-titles FILE]
 
 Options:
-    --section-titles FILE   List of section titles [default: .medtext/resources/section_titles.txt]
+    --section-titles FILE   List of section titles [default: ~/.medtext/resources/section_titles.txt]
     -o FILE
     -i FILE
     --overwrite
 """
+import os.path
+
 import bioc
 import docopt
 
@@ -24,7 +26,7 @@ def main():
 
     try:
         if argv['regex']:
-            with open(argv['--section-titles']) as fp:
+            with open(os.path.expanduser(argv['--section-titles'])) as fp:
                 section_titles = [line.strip() for line in fp]
             pattern = combine_patterns(section_titles)
             processor = BioCSectionSplitterRegex(regex_pattern=pattern)
@@ -35,7 +37,7 @@ def main():
             nlp.add_pipe("medspacy_sectionizer")
             processor = BioCSectionSplitterMedSpacy(nlp)
         elif argv['download']:
-            request_medtext(argv['--section-titles'])
+            request_medtext(os.path.expanduser(argv['--section-titles']))
             return
         else:
             raise KeyError

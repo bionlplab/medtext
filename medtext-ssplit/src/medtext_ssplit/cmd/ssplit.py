@@ -1,7 +1,7 @@
 """
 Usage:
-    ssplit ssplit [options] -i FILE -o FILE
-    ssplit download
+    cmd ssplit [options] -i FILE -o FILE
+    cmd download
 
 Options:
     --newline   Whether to treat newlines as sentence breaks.

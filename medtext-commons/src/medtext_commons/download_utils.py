@@ -79,7 +79,9 @@ def request_file(url: str, path: MedTextPath, proxies=None, md5: str=None, raise
     assert_file_exists(path, md5)
 
 
-def request_medtext(dst, md5: str=None, proxies=None):
+def request_medtext(dst, src=None, md5: str=None, proxies=None):
     base = os.path.basename(dst)
-    request_file('{}/{}'.format(MEDTEXT_RESOURCES_GITHUB, base), dst, md5=md5, proxies=proxies)
-
+    if src is None:
+        request_file('{}/{}'.format(MEDTEXT_RESOURCES_GITHUB, base), dst, md5=md5, proxies=proxies)
+    else:
+        request_file(src, dst, md5=md5, proxies=proxies)
