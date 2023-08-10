@@ -1,0 +1,11 @@
+bioc>=2.0
+docopt
+medtext_commons
+medtext_conv
+medtext_deid
+medtext_neg
+medtext_ner
+medtext_parse
+medtext_preprocess
+medtext_secsplit
+medtext_ssplit

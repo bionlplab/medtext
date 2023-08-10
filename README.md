@@ -1,4 +1,4 @@
-<img src="https://github.com/bionlplab/medtext/blob/master/medtext.png?raw=true" alt="MedText" width="500"/>
+<img src="https://github.com/bionlplab/medtext/blob/main/medtext-icon/medtext.png?raw=true" alt="MedText" width="500"/>
 
 ## Purpose
 

@@ -27,5 +27,6 @@ def main():
         print('Downloading: NLTK averaged_perceptron_tagger')
         nltk.download('averaged_perceptron_tagger')
 
+
 if __name__ == '__main__':
     main()

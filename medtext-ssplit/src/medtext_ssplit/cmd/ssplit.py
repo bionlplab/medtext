@@ -13,8 +13,8 @@ import bioc
 import docopt
 import nltk
 
-from medtext_commons.cmd.utils import process_options, process_file
-from medtext_preprocess.models.sentence_split_nltk import BioCSSplitterNLTK
+from medtext_commons.cmd_utils import process_options, process_file
+from medtext_ssplit.models.sentence_split_nltk import BioCSSplitterNLTK
 
 
 def main():
