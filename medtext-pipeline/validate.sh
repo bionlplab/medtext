@@ -1,5 +1,5 @@
 export PYTHONPATH=$PYTHONPATH:src
-examples='medtext/examples'
+examples='medtext-examples'
 $output='$output'
 
 [ -d $$output ] || mkdir $$output
@@ -12,8 +12,8 @@ medtext-cdm2bioc -i $examples/ex2.csv -o $output/ex2.xml
 # deid
 medtext-deid --repl=X -i $examples/ex3.xml -o $output/ex3.deid_philter.xml
 # split section
-medtext-split_section reg -i $examples/ex4.xml -o $output/ex4.secsplit_regex.xml
-medtext-split_section medspacy -i $examples/ex4.xml -o $output/ex4.secsplit_medspacy.xml
+medtext-secsplit reg -i $examples/ex4.xml -o $output/ex4.secsplit_regex.xml
+medtext-secsplit medspacy -i $examples/ex4.xml -o $output/ex4.secsplit_medspacy.xml
 # preprocess
 medtext-preprocess spacy -i $examples/ex4.secsplit_medspacy.xml -o $output/ex4.preprocess_spacy.xml
 medtext-preprocess stanza -i $examples/ex4.secsplit_medspacy.xml -o $output/ex4.preprocess_stanza.xml
