@@ -8,12 +8,12 @@ projects=(medtext-commons
   medtext-preprocess
   medtext-ssplit
 )
-currentdir="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
+currentdir=$(pwd)
 outdir=$currentdir/dist
 [ -d "$outdir" ] || mkdir "$outdir"
 echo "$outdir"
 for project in "${projects[@]}"
 do
   echo "$project"
-  cd ../"$project" && python -m build -n -o "$outdir"
+  (cd "$project" && python -m build -n -o "$outdir")
 done
