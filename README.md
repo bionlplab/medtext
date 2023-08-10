@@ -2,7 +2,7 @@
 
 ## Purpose
 
-MedText is a high-performance Python Clinical Text Analysis System.
+medtext is a high-performance Python Clinical Text Analysis System.
 
 ## Prerequisites
 
