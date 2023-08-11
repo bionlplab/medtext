@@ -41,7 +41,7 @@ script-files = ["download_all.sh"]
 "Homepage" = "https://github.com/bionlplab/medtext"
 
 [tool.setuptools.packages.find]
-where = ["src"]
+#where = ["src"]
 exclude = ["tests*"]
 
 [project.scripts]
