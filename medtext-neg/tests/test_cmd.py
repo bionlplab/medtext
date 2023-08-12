@@ -18,7 +18,6 @@ def test_download():
 
 def test_neg():
     cmd = 'neg --regex-patterns FILE --ngrex-patterns FILE --overwrite --sort-anns -i FILE -o FILE'
-    print(cmd.split())
     argv = docopt.docopt(cli.__doc__, argv=cmd.split())
     assert argv['neg'] is True
     assert argv['download'] is False

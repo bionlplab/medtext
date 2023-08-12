@@ -21,9 +21,16 @@ Homepage = "https://github.com/bionlplab/medtext"
 [project.scripts]
 medtext-deid = "medtext_deid.cmd.deid_philter:main"
 
+[tool.setuptools]
+include-package-data = true
+
 [tool.setuptools.dynamic.dependencies]
 file = [ "requirements.txt",]
 
 [tool.setuptools.packages.find]
+namespaces = true
 where = [ "src",]
 exclude = [ "tests*",]
+
+[tool.setuptools.package-data]
+"medtext_deid.models" = ["predict_i2b2_medtext.json"]
