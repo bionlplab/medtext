@@ -3,16 +3,16 @@
 This module splits the report into sentences using
 [NLTK](https://www.nltk.org/api/nltk.tokenize.html).
 
-## Options
-
-| Option name  | Default  | Description                                   |
-|:-------------|:---------|:----------------------------------------------|
-| --newline    | `False`  | Whether to treat newlines as sentence breaks. |
-
-## Example Usage
-
 ```shell
-$ medtext-ssplit -i /path/to/input.xml -o /path/to/output.xml
+Usage:
+    medtext-ssplit ssplit [options] -i FILE -o FILE
+    medtext-ssplit download
+
+Options:
+    --newline       Whether to treat newlines as sentence breaks.
+    -o FILE         Output file
+    -i FILE         Input file
+    --overwrite     Overwrite the existing file
 ```
 
 ```python

@@ -1,13 +1,13 @@
 """
 Usage:
-    cmd ssplit [options] -i FILE -o FILE
-    cmd download
+    medtext-ssplit ssplit [options] -i FILE -o FILE
+    medtext-ssplit download
 
 Options:
-    --newline   Whether to treat newlines as sentence breaks.
-    -o FILE
-    -i FILE
-    --overwrite
+    --newline       Whether to treat newlines as sentence breaks.
+    -o FILE         Output file
+    -i FILE         Input file
+    --overwrite     Overwrite the existing file
 """
 import bioc
 import docopt
