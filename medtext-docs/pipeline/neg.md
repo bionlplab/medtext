@@ -6,18 +6,18 @@ dependencies for pattern definition and subgraph matching for graph traversal
 search so that the scope for negation/uncertainty is not limited to the fixed
 word distance.
 
-## Options
-
-| Option name      | Default                                  | Description                      |
-|:-----------------|:-----------------------------------------|:---------------------------------|
-| --regex_patterns | `$resources/patterns/regex_patterns.yml` | Regular expression patterns      |
-| --ngrex_patterns | `$resources/patterns/ngrex_patterns.yml` | Nregex-based expression patterns |
-| --sort_anns      | `False`                                  | Sort annotations by its location |
-
-## Example Usage
-
 ```shell
-$ radext-neg -i /path/to/input.xml -o /path/to/output.xml
+Usage:
+    medtext-neg neg [--regex-patterns FILE --ngrex-patterns FILE --overwrite --sort-anns] -i FILE -o FILE
+    medtext-neg download [--regex-patterns FILE --ngrex-patterns FILE]
+
+Options:
+    -i FILE                 Inpput file
+    -o FILE                 Output file
+    --overwrite             Overwrite the existing file
+    --regex-patterns FILE   Regular expression patterns [default: ~/.medtext/resources/patterns/regex_patterns.yml]
+    --ngrex-patterns FILE   Nregex-based expression patterns [default: ~/.medtext/resources/patterns/ngrex_patterns.yml]
+    --sort-anns             Sort annotations by its location
 ```
 
 ```python
@@ -42,7 +42,8 @@ The Nregex follows [Semgrex](https://nlp.stanford.edu/software/tregex.shtml) but
 operations (`>` and`<`).
 
 ```{warning}
-Like Tregex, there is no pre-indexing of the data to be searched. Rather there is a linear scan through the all nodes in
+Like Tregex, there is no pre-indexing of the data to be searched. 
+Rather there is a linear scan through the all nodes in
 the graph. As a result, matching is **slower**.
 ```
 

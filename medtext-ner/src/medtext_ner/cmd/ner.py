@@ -1,16 +1,16 @@
 """
 Usage:
-    cli spacy [--overwrite --spacy-model NAME --radlex FILE] -i FILE -o FILE
-    cli regex [--overwrite] --phrases FILE -i FILE -o FILE
-    cli download [--spacy-model NAME]
+    medtext-ner spacy [--overwrite --spacy-model NAME --radlex FILE] -i FILE -o FILE
+    medtext-ner regex [--overwrite] --phrases FILE -i FILE -o FILE
+    medtext-ner download [--spacy-model NAME]
 
 Options:
-    --overwrite
-    -o FILE
-    -i FILE
-    --phrases FILE           Phrase patterns
-    --radlex FILE            The RadLex ontology file [default: .medtext/resources/Radlex4.1.xlsx]
-    --spacy-model NAME       spaCy trained model [default: en_core_web_sm]
+    -i FILE             Inpput file
+    -o FILE             Output file
+    --overwrite         Overwrite the existing file
+    --phrases FILE      Phrase patterns
+    --radlex FILE       The RadLex ontology file [default: .medtext/resources/Radlex4.1.xlsx]
+    --spacy-model NAME  spaCy trained model [default: en_core_web_sm]
 """
 import subprocess
 import sys
@@ -38,12 +38,12 @@ def main():
         request_medtext(DEFAULT_RADLEX)
         subprocess.check_call([sys.executable, '-m', 'spacy', 'download', argv['--spacy-model']])
     elif argv['spacy']:
-            nlp = spacy.load(argv['--spacy-model'], exclude=['ner', 'parser', 'senter'])
-            radlex = RadLex4(argv['--radlex'])
-            matchers = radlex.get_spacy_matchers(nlp)
-            extractor = NerSpacyExtractor(nlp, matchers)
-            processor = BioCNerSpacy(extractor, 'RadLex')
-            process_file(argv['-i'], argv['-o'], processor, bioc.PASSAGE)
+        nlp = spacy.load(argv['--spacy-model'], exclude=['ner', 'parser', 'senter'])
+        radlex = RadLex4(argv['--radlex'])
+        matchers = radlex.get_spacy_matchers(nlp)
+        extractor = NerSpacyExtractor(nlp, matchers)
+        processor = BioCNerSpacy(extractor, 'RadLex')
+        process_file(argv['-i'], argv['-o'], processor, bioc.PASSAGE)
     elif argv['regex']:
         patterns = load_yml(argv['--phrases'])
         extractor = NerRegExExtractor(patterns)

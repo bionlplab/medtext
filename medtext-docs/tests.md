@@ -19,7 +19,6 @@ $ pip install -e .
 $ pytest --cov-report html --cov=.
 ```
 
-
 ## Continuous Integration
 
 The medtext test suite is exercised by GitHub Actions on every push to our repo

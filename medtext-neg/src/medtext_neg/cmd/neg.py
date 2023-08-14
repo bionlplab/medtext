@@ -1,18 +1,17 @@
 """
 Usage:
-    cmd neg [--regex-patterns FILE --ngrex-patterns FILE --overwrite --sort-anns] -i FILE -o FILE
-    cmd download [--regex-patterns FILE --ngrex-patterns FILE]
+    medtext-neg neg [--regex-patterns FILE --ngrex-patterns FILE --overwrite --sort-anns] -i FILE -o FILE
+    medtext-neg download [--regex-patterns FILE --ngrex-patterns FILE]
 
 Options:
-    --regex-patterns=FILE    [default: ~/.medtext/resources/patterns/regex_patterns.yml]
-    --ngrex-patterns=FILE    [default: ~/.medtext/resources/patterns/ngrex_patterns.yml]
-    --overwrite
-    --sort-anns
-    -o FILE
-    -i FILE
+    -i FILE                 Inpput file
+    -o FILE                 Output file
+    --overwrite             Overwrite the existing file
+    --regex-patterns FILE   Regular expression patterns [default: ~/.medtext/resources/patterns/regex_patterns.yml]
+    --ngrex-patterns FILE   Nregex-based expression patterns [default: ~/.medtext/resources/patterns/ngrex_patterns.yml]
+    --sort-anns             Sort annotations by its location
 """
 import os.path
-from pathlib import Path
 
 import bioc
 
