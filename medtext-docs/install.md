@@ -5,14 +5,18 @@ The latest medtext releases are available over
 [pypi](https://pypi.python.org/pypi/medtext).
 
 Using pip, medtext releases are available as source packages and binary wheels.
-It is also generally recommended installing packages in a virtual
-environment to avoid modifying system state:
+It is also generally recommended to install packages in a virtual
+environment to avoid modifying the system state:
 
 ```shell
+# install a virtual environment
 $ python -m venv venv
 $ source venv/bin/activate
 $ pip install -U pip setuptools wheel
+
+# install medtext
 $ pip install -U medtext
-$ python -m spacy download en_core_web_sm
-$ medtext-download --all
+
+# download required models
+$ bash download_all.sh
 ```

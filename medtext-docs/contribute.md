@@ -1,7 +1,7 @@
 # Contributing to medtext
 
-You are here to help on medtext? 
-Awesome, feel welcome and read the following sections in order to know how to
+Are you here to help on medtext? 
+Awesome, feel welcome and read the following sections to know how to
 ask questions and how to work on something.
 
 When contributing to this repository, please first discuss the change you 
@@ -10,15 +10,15 @@ repository before making a change.
 
 ## Get in touch
 
-Report bugs, suggest features or view the source code on
+Report bugs, suggest features, or view the source code on
 [GitHub](https://github.com/bionlplab/medtext).
 
-## Contributing to development
+## Contributing to the development
 
-If you want to deep dive and help out with development on medtext, then first
+If you want to dive deep and help with development on medtext, then first 
 get the project installed locally according to the [installation
 guide](https://medtext.readthedocs.io/en/latest/install.html). After that is
-done, we suggest you have a look at tickets in our issue tracker. These are
+done, we suggest you look at tickets in our issue tracker. These are
 meant to be a great way to get a smooth start and won’t put you in front of the
 most complex parts of the system.
 
@@ -32,5 +32,3 @@ please follow the standard Contribution Guidelines set forth at
 
 Documentation for medtext is hosted by Read the Docs at
 <https://medtext.readthedocs.io>.
-
-

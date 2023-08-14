@@ -2,13 +2,12 @@
 
 ## Development Installation
 
-These are development setup. If you are a contributor to medtext, it might a be
+These are development setup. If you are a contributor to medtext, it might be
 a good idea to follow these guidelines as well.
 
-To follow these instructions you will need a Unix/Linux system, or
-[Windows Subsystem for Linux
-(WSL)](https://docs.microsoft.com/en-us/windows/wsl/). Other operating systems
-are not supported.
+To follow these instructions you will need a Unix/Linux system, or 
+[Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/). 
+Other operating systems are not supported.
 
 ```{warning} 
 We do not recommend following this guide to deploy an instance of Read the Docs

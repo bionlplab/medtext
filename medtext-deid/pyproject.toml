@@ -19,7 +19,7 @@ email = "yip4002@med.cornell.edu"
 Homepage = "https://github.com/bionlplab/medtext"
 
 [project.scripts]
-medtext-deid = "medtext_deid.cmd.deid_philter:main"
+medtext-deid = "medtext_deid.cmd.deid:main"
 
 [tool.setuptools]
 include-package-data = true

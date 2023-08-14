@@ -16,7 +16,6 @@ custom installation.
    :maxdepth: 1
    
    install
-   getting_started
    pipeline/index
    acknowledgments
    reference

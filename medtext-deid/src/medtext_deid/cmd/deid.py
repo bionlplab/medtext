@@ -1,14 +1,14 @@
 """
 Usage:
-    clid philter [options] -i FILE -o FILE
-    clid bert [options] -i FILE -o FILE
-    clid download
+    medtext-deid philter [options] -i FILE -o FILE
+    medtext-deid bert [options] -i FILE -o FILE
+    medtext-deid download
 
 Options:
-    --overwrite
-    -o FILE
-    -i FILE
-    --repl CHAR    PHI replacement char [default: X]
+    --overwrite     Overwrite the existing file
+    -o FILE         Input file
+    -i FILE         Output file
+    --repl CHAR     PHI replacement char [default: X]
 """
 import bioc
 import docopt
