@@ -1,14 +1,14 @@
 """
 Usage:
-    split_section regex [--section-titles FILE | --overwrite] -i FILE -o FILE
-    split_section medspacy [--overwrite] -i FILE -o FILE
-    split_section download [--section-titles FILE]
+    medtext-secsplit regex [--section-titles FILE | --overwrite] -i FILE -o FILE
+    medtext-secsplit medspacy [--overwrite] -i FILE -o FILE
+    medtext-secsplit download [--section-titles FILE]
 
 Options:
     --section-titles FILE   List of section titles [default: ~/.medtext/resources/section_titles.txt]
-    -o FILE
-    -i FILE
-    --overwrite
+    -o FILE                 Input file
+    -i FILE                 Output file
+    --overwrite             Overwrite the existing file
 """
 import os.path
 

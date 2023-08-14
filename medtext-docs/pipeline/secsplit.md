@@ -3,19 +3,22 @@
 This module splits the report into sections. 
 We provide two options for section split.
 
-## secsplit:regex
-
-The **rule-based method** uses a list of section titles to split the notes.
-
-### Options
-
-| Option name      | Default                          | Description            |
-|:-----------------|:---------------------------------|:-----------------------|
-| --section-titles | `$resources/section_titles.txt`  | List of section titles |
-
 ```shell
-$ medtext-secsplit regex -i /path/to/input.xml -o /path/to/output.xml
+Usage:
+    medtext-secsplit regex [--section-titles FILE | --overwrite] -i FILE -o FILE
+    medtext-secsplit medspacy [--overwrite] -i FILE -o FILE
+    medtext-secsplit download [--section-titles FILE]
+
+Options:
+    --section-titles FILE   List of section titles [default: ~/.medtext/resources/section_titles.txt]
+    -o FILE                 Input file
+    -i FILE                 Output file
+    --overwrite             Overwrite the existing file
 ```
+
+## regex
+
+This **rule-based** module uses a list of section titles to split the notes.
 
 ```python
 from medtext_secsplit.models.section_split_regex import BioCSectionSplitterRegex, combine_patterns
@@ -26,7 +29,7 @@ pattern = combine_patterns(section_titles)
 processor = BioCSectionSplitterRegex(regex_pattern=pattern)
 ```
 
-## secsplit:medspacy
+## medspacy
 
 [**MedSpaCy**](https://github.com/medspacy/medspacy) is a spaCy tool for performing
 clinical NLP and text processing tasks.
@@ -35,14 +38,9 @@ matching of the section titles with default rules adapted from
 [SecTag](https://pubmed.ncbi.nlm.nih.gov/18999303/) and
 expanded through practice.
 
-```shell
-$ medtext-secsplit medspacy -i /path/to/input.xml -o /path/to/output.xml
-```
-
 ```python
 import medspacy
 from medtext_secsplit.models.section_split_medspacy import BioCSectionSplitterMedSpacy
-
 nlp = medspacy.load()
 nlp.add_pipe("medspacy_sectionizer")
 processor = BioCSectionSplitterMedSpacy(nlp)

@@ -9,11 +9,11 @@ reports.
    :maxdepth: 1
 
    data_conversion
-   ner
    deid
    secsplit
-   preprocess
    ssplit
+   preprocess
+   ner
    parse
    depparse
    neg
