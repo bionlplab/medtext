@@ -4,10 +4,10 @@ Usage:
     medtext-ssplit download
 
 Options:
-    --newline       Whether to treat newlines as sentence breaks.
-    -o FILE         Output file
     -i FILE         Input file
+    -o FILE         Output file
     --overwrite     Overwrite the existing file
+    --newline       Whether to treat newlines as sentence breaks.
 """
 import bioc
 import docopt

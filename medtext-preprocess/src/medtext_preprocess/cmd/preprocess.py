@@ -1,15 +1,15 @@
 """
 Usage:
-    preprocess stanza [--overwrite] -i FILE -o FILE
-    preprocess spacy [--overwrite --spacy-model NAME] -i FILE -o FILE
-    preprocess download spacy [--spacy-model=NAME]
-    preprocess download stanza
+    medtext-preprocess stanza [--overwrite] -i FILE -o FILE
+    medtext-preprocess spacy [--overwrite --spacy-model NAME] -i FILE -o FILE
+    medtext-preprocess download spacy [--spacy-model=NAME]
+    medtext-preprocess download stanza
 
 Options:
-    --overwrite
-    --spacy-model NAME   spaCy trained model [default: en_core_web_sm]
-    -o FILE
-    -i FILE
+    -i FILE             Input file
+    -o FILE             Output file
+    --overwrite         Overwrite the existing file
+    --spacy-model NAME  spaCy trained model [default: en_core_web_sm]
 """
 import subprocess
 import sys

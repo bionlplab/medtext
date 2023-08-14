@@ -5,10 +5,10 @@ Usage:
     medtext-secsplit download [--section-titles FILE]
 
 Options:
-    --section-titles FILE   List of section titles [default: ~/.medtext/resources/section_titles.txt]
     -o FILE                 Input file
     -i FILE                 Output file
     --overwrite             Overwrite the existing file
+    --section-titles FILE   List of section titles [default: ~/.medtext/resources/section_titles.txt]
 """
 import os.path
 

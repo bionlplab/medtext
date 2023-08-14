@@ -5,9 +5,9 @@ Usage:
     medtext-deid download
 
 Options:
+    -i FILE         Input file
+    -o FILE         Output file
     --overwrite     Overwrite the existing file
-    -o FILE         Input file
-    -i FILE         Output file
     --repl CHAR     PHI replacement char [default: X]
 """
 import bioc

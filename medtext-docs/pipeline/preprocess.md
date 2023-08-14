@@ -1,24 +1,27 @@
 # Text preprocessing
 
 This module provides sentence split, tokenization, part-of-speech tagging,
-lemmatization and dependency parsing. medtext provides two sub-modules for text preprocessing.
+lemmatization and dependency parsing. 
+We provide two options for text preprocessing.
 
-## preprocess:spacy
+```shell
+Usage:
+    medtext-preprocess stanza [--overwrite] -i FILE -o FILE
+    medtext-preprocess spacy [--overwrite --spacy-model NAME] -i FILE -o FILE
+    medtext-preprocess download spacy [--spacy-model=NAME]
+    medtext-preprocess download stanza
+
+Options:
+    -i FILE             Input file
+    -o FILE             Output file
+    --overwrite         Overwrite the existing file
+    --spacy-model NAME  spaCy trained model [default: en_core_web_sm]
+```
+
+## spacy
 
 [**spaCy**](https://spacy.io/) is an open-source Python library for Natural Language
 Processing.
-
-### Options
-
-| Option name   | Default          | Description              |
-|:--------------|:-----------------|:-------------------------|
-| --spacy-model | `en_core_web_sm` | The spaCy model          |
-
-### Example Usage
-
-```bash
-$ medtext-preprocess spacy -i /path/to/input.xml -o /path/to/output.xml
-```
 
 ```python
 import spacy
@@ -28,16 +31,10 @@ nlp = spacy.load(argv['--spacy-model'])
 processor = BioCSpacy(nlp)
 ```
 
-## preprocess:stanza
+## stanza
 
 [**Stanza**](https://stanfordnlp.github.io/stanza/) is a collection of efficient
 tools for Natural Language Processing.
-
-### Example Usage
-
-```bash
-$ medtext-preprocess stanza -i /path/to/input.xml -o /path/to/output.xml
-```
 
 ```python
 import stanza
