@@ -1,14 +1,14 @@
 """
 Usage:
-    cmd parse [options] -i FILE -o FILE
-    cmd download [--bllip-model DIR]
+    medtext-parse parse [options] -i FILE -o FILE
+    medtext-parse download [--bllip-model DIR]
 
 Options:
-    --overwrite
-    --bllip-model DIR       Bllip parser model path [default: ~/.medtext/bllipparser/BLLIP-GENIA-PubMed]
-    -o FILE
-    -i FILE
-    --only-ner              Parse the sentences with NER annotations at the passage level
+    -i FILE             Inpput file
+    -o FILE             Output file
+    --overwrite         Overwrite the existing file
+    --bllip-model DIR   Bllip parser model path [default: ~/.medtext/bllipparser/BLLIP-GENIA-PubMed]
+    --only-ner          Parse the sentences with NER annotations at the passage level
 """
 import os.path
 from pathlib import Path
@@ -27,7 +27,9 @@ def main():
     process_options(argv)
 
     if argv['parse']:
-        processor = BioCParserBllip(model_dir=os.path.expanduser(argv['--bllip-model']), only_ner=argv['--only-ner'])
+        processor = BioCParserBllip(
+            model_dir=os.path.expanduser(argv['--bllip-model']),
+            only_ner=argv['--only-ner'])
         process_file(argv['-i'], argv['-o'], processor, bioc.DOCUMENT)
     elif argv['download']:
         from bllipparser import ModelFetcher

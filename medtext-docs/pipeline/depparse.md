@@ -20,14 +20,18 @@ sentence and the dependency relation between words.
 [Stanford dependency converter](https://github.com/dmcc/PyStanfordDependencies) 
 with the `CCProcessed` and `Universal` option. 
 
-## Example Usage
-
 ```shell
-$ radext-tree2dep -i /path/to/input.xml -o /path/to/output.xml
+Usage:
+    medtext-tree2dep [options] -i FILE -o FILE
+
+Options:
+    -i FILE         Inpput file
+    -o FILE         Output file
+    --overwrite     Overwrite the existing file
 ```
+
 
 ```python
 from medtext_parse.models.tree2dep import BioCPtb2DepConverter
-
 converter = BioCPtb2DepConverter()
 ```

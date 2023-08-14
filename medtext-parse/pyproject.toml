@@ -20,6 +20,7 @@ Homepage = "https://github.com/bionlplab/medtext"
 
 [project.scripts]
 medtext-parse = "medtext_parse.cmd.parse:main"
+medtext-tree2dep = "medtext_parse.cmd.tree2dep:main"
 
 [tool.setuptools.dynamic.dependencies]
 file = [ "requirements.txt",]

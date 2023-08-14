@@ -1,11 +1,11 @@
 """
 Usage:
-    tree2dep [options] -i FILE -o FILE
+    medtext-tree2dep [options] -i FILE -o FILE
 
 Options:
-    --overwrite
-    -o FILE
-    -i FILE
+    -i FILE         Inpput file
+    -o FILE         Output file
+    --overwrite     Overwrite the existing file
 """
 import bioc
 import docopt
