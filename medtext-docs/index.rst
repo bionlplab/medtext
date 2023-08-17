@@ -5,7 +5,7 @@
 medtext documentation
 =====================
 
-**medtext** is a high-performance radiology report text analysis system.
+**medtext** is a high-performance clinical text analysis system.
 
 Documentation for running your own local version of medtext for
 development, or taking the open source medtext codebase for your own

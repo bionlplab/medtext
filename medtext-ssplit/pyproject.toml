@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "medtext-ssplit"
-version = "0.1.dev2"
+version = "1.0.dev3"
 description = "medtext extension for sentence splitting."
 readme = "README.md"
 keywords = [ "clinical note", "text-mining", "NLP", "EHR note",]

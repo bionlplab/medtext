@@ -2,7 +2,7 @@ Pipeline
 ========
 
 This section runs through the API for common tasks to analyze the clinical
-reports.
+notes.
 
 .. toctree::
    :caption: Table of contents
@@ -17,4 +17,3 @@ reports.
    parse
    depparse
    neg
-

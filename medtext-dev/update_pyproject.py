@@ -12,9 +12,10 @@ PROJECTS = [
     "medtext-secsplit",
     "medtext-preprocess",
     "medtext-ssplit",
+    "medtext",
 ]
 
-VERSION = '0.1.dev2'
+VERSION = '1.0.dev3'
 
 if __name__ == '__main__':
     with open('pyproject-template.toml') as fp:

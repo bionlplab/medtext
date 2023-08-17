@@ -1,4 +1,5 @@
-projects=(medtext-commons
+projects=(
+  medtext-commons
   medtext-conv
   medtext-deid
   medtext-neg
@@ -7,6 +8,7 @@ projects=(medtext-commons
   medtext-secsplit
   medtext-preprocess
   medtext-ssplit
+  medtext
 )
 currentdir=$(pwd)
 outdir=$currentdir/dist

@@ -59,14 +59,15 @@ class TextDatasetCreator(DatasetCreator):
                 spans=note_spans,
                 notation=notation
             )]
-            for ner_sent_index, ner_sentence in self._sentence_dataset.get_sentences(
+            for _, ner_sentence in self._sentence_dataset.get_sentences(
                     sent_tokens=sent_tokens,
                     token_text_key=token_text_key,
                     label_key=label_key
             ):
                 current_sent_info = ner_sentence['current_sent_info']
                 note_sent_info_store = {'start': current_sent_info[0]['start'],
-                                        'end': current_sent_info[-1]['end'], 'note_id': note_id}
+                                        'end': current_sent_info[-1]['end'],
+                                        'note_id': note_id}
                 ner_sentence['note_sent_info'] = note_sent_info_store
                 yield ner_sentence
 
@@ -76,10 +77,12 @@ class BioCRobustDeid(BioCProcessor):
         super(BioCRobustDeid, self).__init__('deid:robust')
         self.repl = repl
         if len(repl) != 1:
-            raise ValueError('The replacement repl cannot have one char: %s' % repl)
+            raise ValueError('The replacement repl cannot have more than one '
+                             'char: %s' % repl)
 
         if model_config is None:
-            model_config = os.path.join(os.path.dirname(__file__), 'predict_i2b2_medtext.json')
+            model_config = os.path.join(os.path.dirname(__file__),
+                                        'predict_i2b2_medtext.json')
 
         with open(model_config) as fp:
             config = json.load(fp)
@@ -103,9 +106,10 @@ class BioCRobustDeid(BioCProcessor):
             EvaluationArguments,
             TrainingArguments
         ))
-        # If we pass only one argument to the script and it's the path to a json file,
-        # let's parse it to get our arguments.
-        model_args, data_args, evaluation_args, training_args = parser.parse_json_file(json_file=model_config)
+        # If we pass only one argument to the script and it's the path
+        # to a json file, let's parse it to get our arguments.
+        model_args, data_args, evaluation_args, training_args \
+            = parser.parse_json_file(json_file=model_config)
 
         self.data_args = data_args
         self.training_args = training_args
@@ -135,10 +139,12 @@ class BioCRobustDeid(BioCProcessor):
         # Initialize the text deid object
         self.text_deid = TextDeid(notation=self.NOTATION, span_constraint='super_strict')
 
-    def process_sentence(self, sentence: BioCSentence, docid: str = None) -> BioCSentence:
+    def process_sentence(self, sentence: BioCSentence, docid: str = None) \
+            -> BioCSentence:
         warnings.warn('Should call process_passage for batch process')
         entity_positions = self.deidentify_text(sentence.text)
-        deid_text, anns = self.create_annotations(sentence.text, sentence.offset, entity_positions)
+        deid_text, anns = self.create_annotations(
+            sentence.text, sentence.offset, entity_positions)
         sentence.annotations += anns
         sentence.text = deid_text
         return sentence
@@ -150,7 +156,8 @@ class BioCRobustDeid(BioCProcessor):
             start_pos, end_pos = positions
             ann = bioc.BioCAnnotation()
             ann.id = 'A%d' % i
-            ann.add_location(bioc.BioCLocation(offset + start_pos, end_pos - start_pos))
+            ann.add_location(bioc.BioCLocation(offset + start_pos,
+                                               end_pos - start_pos))
             ann.text = text[start_pos: end_pos]
             ann.infons['source_concept'] = tag
             ann.infons['nlp_system'] = self.nlp_system
@@ -160,10 +167,12 @@ class BioCRobustDeid(BioCProcessor):
             deid_text = deid_text[:start_pos] + deid_tag + deid_text[end_pos:]
         return deid_text, anns
 
-    def process_passage(self, passage: BioCPassage, docid: str = None) -> BioCPassage:
+    def process_passage(self, passage: BioCPassage, docid: str = None) \
+            -> BioCPassage:
         if passage.text:
             entity_positions = self.deidentify_text(passage.text)
-            deid_text, anns = self.create_annotations(passage.text, passage.offset, entity_positions)
+            deid_text, anns = self.create_annotations(
+                passage.text, passage.offset, entity_positions)
             passage.annotations += anns
             passage.text = deid_text
 
@@ -177,9 +186,11 @@ class BioCRobustDeid(BioCProcessor):
         entity_positions_batch = self.deidentify_batch(note_batch)
         for sentence in passage.sentences:
             if sentence.offset not in entity_positions_batch:
-                print('%s:%s Cannot deidentify sentence: %s' % (docid, sentence.offset, sentence.text))
+                print('%s:%s Cannot deidentify sentence: %s'
+                      % (docid, sentence.offset, sentence.text))
             entity_positions = entity_positions_batch[sentence.offset]
-            deid_text, anns = self.create_annotations(sentence.text, sentence.offset, entity_positions)
+            deid_text, anns = self.create_annotations(
+                sentence.text, sentence.offset, entity_positions)
             sentence.annotations += anns
             sentence.text = deid_text
 
@@ -214,7 +225,8 @@ class BioCRobustDeid(BioCProcessor):
                 file.write(json.dumps(ner_sentence) + '\n')
 
         # Set the required data and predictions of the sequence tagger
-        # Can also use data_args.test_file instead of ner_dataset_file (make sure it matches ner_dataset_file)
+        # Can also use data_args.test_file instead of ner_dataset_file
+        # (make sure it matches ner_dataset_file)
         self.sequence_tagger.set_predict(
             test_file=ner_path,
             max_test_samples=self.data_args.max_predict_samples,
@@ -238,7 +250,9 @@ class BioCRobustDeid(BioCProcessor):
             note_id = deid_note[METADATA_KEY][NOTE_ID_KEY]
             note = prediction_map[note_id]
             # Get predictions
-            predictions = self.text_deid.decode(tokens=note[self.TOKENS_KEY], predictions=note[PREDICTIONS_KEY])
+            predictions = self.text_deid.decode(
+                tokens=note[self.TOKENS_KEY],
+                predictions=note[PREDICTIONS_KEY])
             # Get entities and their positions
             entity_positions = self.text_deid.get_predicted_entities_positions(
                 tokens=note[self.TOKENS_KEY],
