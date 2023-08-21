@@ -1,6 +1,7 @@
 import bioc
 import tqdm
-from bioc import BioCSentence, BioCCollection, BioCDocument, BioCPassage
+from bioc import BioCSentence, BioCCollection, BioCDocument, BioCPassage, \
+    BioCLocation, BioCAnnotation
 
 from medtext_commons.core import BioCProcessor
 from medtext_commons.base_utils import is_passage_empty, strip_passage
@@ -33,7 +34,8 @@ class BioCSectionSplitterMedSpacy(BioCProcessor):
             passage.offset = start + offset
             passage.text = text[start:end]
             if title is not None:
-                passage.infons['section_concept'] = title[:-1].strip() if title[-1] == ':' else title.strip()
+                passage.infons['section_concept'] = title[:-1].strip() \
+                    if title[-1] == ':' else title.strip()
                 passage.infons['type'] = 'title_1'
             strip_passage(passage)
             return passage
@@ -45,18 +47,22 @@ class BioCSectionSplitterMedSpacy(BioCProcessor):
         medspacy_doc = self.nlp(text)
         for i, section in enumerate(medspacy_doc._.sections):
             # title
-            passage = create_passage(offset, medspacy_doc, section.title_span, section.category)
+            passage = create_passage(offset, medspacy_doc, section.title_span,
+                                     section.category)
             if not is_passage_empty(passage):
                 doc.add_passage(passage)
-                ann = bioc.BioCAnnotation()
-                ann.id = 'S{}'.format(i)
-                ann.text = passage.text
-                ann.infons['section_concept'] = passage.infons['section_concept']
-                ann.infons['type'] = passage.infons['type']
-                ann.infons['nlp_system'] = self.nlp_system
-                ann.infons['nlp_date_time'] = self.nlp_date_time
-                ann.add_location(bioc.BioCLocation(passage.offset, len(passage.text)))
-                anns.append(ann)
+                if 'section_concept' in passage.infons:
+                    ann = BioCAnnotation()
+                    ann.id = 'S{}'.format(i)
+                    ann.text = passage.text
+                    ann.infons['section_concept'] = \
+                        passage.infons['section_concept']
+                    ann.infons['type'] = passage.infons['type']
+                    ann.infons['nlp_system'] = self.nlp_system
+                    ann.infons['nlp_date_time'] = self.nlp_date_time
+                    ann.add_location(BioCLocation(
+                        passage.offset, len(passage.text)))
+                    anns.append(ann)
             # body
             passage = create_passage(offset, medspacy_doc, section.body_span)
             if not is_passage_empty(passage):
@@ -66,5 +72,6 @@ class BioCSectionSplitterMedSpacy(BioCProcessor):
         doc.annotations += anns
         return doc
 
-    def process_sentence(self, sentence: BioCSentence, docid: str = None) -> BioCSentence:
+    def process_sentence(self, sentence: BioCSentence, docid: str = None) \
+            -> BioCSentence:
         raise NotImplementedError

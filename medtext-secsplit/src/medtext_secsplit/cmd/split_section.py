@@ -46,7 +46,7 @@ def main():
     processor.process_collection(collection)
 
     with open(argv['-o'], 'w') as fp:
-        bioc.dump(collection, fp, bioc.BioCVersion.V1)
+        bioc.dump(collection, fp)
 
 
 if __name__ == '__main__':

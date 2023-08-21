@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "medtext-commons"
-version = "1.0.dev3"
+version = "1.0.dev4"
 description = "Reusable medtext components."
 readme = "README.md"
 keywords = [ "clinical note", "text-mining", "NLP", "EHR note",]

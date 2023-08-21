@@ -52,16 +52,21 @@ def process_file(src, dest, processor: BioCProcessor, level: int):
     with open(src) as fp:
         collection = bioc.load(fp)
 
-    for doc in tqdm.tqdm(collection.documents):
-        if level == bioc.DOCUMENT:
-            processor.process_document(doc)
-        elif level == bioc.PASSAGE:
-            for passage in tqdm.tqdm(doc.passages, leave=False):
-                processor.process_passage(passage, doc.id)
-        elif level == bioc.SENTENCE:
-            for passage in tqdm.tqdm(doc.passages, leave=False):
-                for sentence in tqdm.tqdm(passage.sentences, leave=False):
-                    processor.process_sentence(sentence, doc.id)
+    if level == 0:
+        processor.process_collection(collection)
+    else:
+        for doc in tqdm.tqdm(collection.documents):
+            if level == bioc.DOCUMENT:
+                processor.process_document(doc)
+            elif level == bioc.PASSAGE:
+                for passage in tqdm.tqdm(doc.passages, leave=False):
+                    processor.process_passage(passage, doc.id)
+            elif level == bioc.SENTENCE:
+                for passage in tqdm.tqdm(doc.passages, leave=False):
+                    for sentence in tqdm.tqdm(passage.sentences, leave=False):
+                        processor.process_sentence(sentence, doc.id)
+            else:
+                raise ValueError('%s: cannot find level' % level)
 
     with open(dest, 'w') as fp:
         bioc.dump(collection, fp)

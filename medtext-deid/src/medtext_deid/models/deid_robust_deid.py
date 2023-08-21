@@ -5,7 +5,7 @@ import warnings
 from pathlib import Path
 
 import bioc
-from bioc import BioCSentence, BioCPassage
+from bioc import BioCSentence, BioCPassage, BioCCollection, BioCDocument
 from transformers import HfArgumentParser, TrainingArguments
 
 from robust_deid.ner_datasets import DatasetCreator
@@ -167,14 +167,63 @@ class BioCRobustDeid(BioCProcessor):
             deid_text = deid_text[:start_pos] + deid_tag + deid_text[end_pos:]
         return deid_text, anns
 
-    def process_passage(self, passage: BioCPassage, docid: str = None) \
-            -> BioCPassage:
-        if passage.text:
-            entity_positions = self.deidentify_text(passage.text)
+    def process_collection(self, collection: BioCCollection) -> BioCCollection:
+        if len(collection.documents) == 0:
+            return collection
+
+        # batch process for documents
+        note_batch = []
+        for doc in collection.documents:
+            note_batch.append({
+                'text': doc.passages[0].text,
+                'meta': {NOTE_ID_KEY: doc.id}
+            })
+        entity_positions_batch = self.deidentify_batch(note_batch)
+        for doc in collection.documents:
+            if doc.id not in entity_positions_batch:
+                print('%s: Cannot deidentify text: %s'
+                      % (doc.id, doc.passages[0].text))
+            entity_positions = entity_positions_batch[doc.id]
+            deid_text, anns = self.create_annotations(
+                doc.passages[0].text, doc.passages[0].offset,
+                entity_positions)
+            doc.passages[0].annotations += anns
+            doc.passages[0].text = deid_text
+        return collection
+
+    def process_document(self, doc: BioCDocument) -> BioCDocument:
+        if len(doc.passages) == 0:
+            return doc
+
+        # batch process for passages
+        note_batch = []
+        for passage in doc.passages:
+            note_batch.append({
+                'text': passage.text,
+                'meta': {NOTE_ID_KEY: passage.offset}
+            })
+        entity_positions_batch = self.deidentify_batch(note_batch)
+        for passage in doc.passages:
+            if passage.offset not in entity_positions_batch:
+                print('%s:%s Cannot deidentify text: %s'
+                      % (doc.id, passage.offset, passage.text))
+            entity_positions = entity_positions_batch[doc.id]
             deid_text, anns = self.create_annotations(
                 passage.text, passage.offset, entity_positions)
             passage.annotations += anns
             passage.text = deid_text
+        return doc
+
+    def process_passage(self, passage: BioCPassage, docid: str = None) \
+            -> BioCPassage:
+        # if passage.text:
+        #     entity_positions = self.deidentify_text(passage.text)
+        #     deid_text, anns = self.create_annotations(
+        #         passage.text, passage.offset, entity_positions)
+        #     passage.annotations += anns
+        #     passage.text = deid_text
+        if len(passage.sentences) == 0:
+            return passage
 
         # batch process for sentences
         note_batch = []
@@ -193,7 +242,6 @@ class BioCRobustDeid(BioCProcessor):
                 sentence.text, sentence.offset, entity_positions)
             sentence.annotations += anns
             sentence.text = deid_text
-
         return passage
 
     def deidentify_text(self, text, id = 0) -> List:
@@ -223,6 +271,7 @@ class BioCRobustDeid(BioCProcessor):
         with os.fdopen(ner_fd, 'w') as file:
             for ner_sentence in ner_notes:
                 file.write(json.dumps(ner_sentence) + '\n')
+        print('ner', ner_path)
 
         # Set the required data and predictions of the sequence tagger
         # Can also use data_args.test_file instead of ner_dataset_file
@@ -263,17 +312,3 @@ class BioCRobustDeid(BioCProcessor):
         return entity_position_batch
 
 
-# if __name__ == '__main__':
-#     dir = Path.home() / 'Downloads/robust-deid'
-#     # input_file = str(dir / 'notes.jsonl')
-#     # ner_dataset_file = str(dir / 'test.jsonl')
-#     # model_config = str(dir / 'predict_i2b2_medtext.json')
-#     # predictions_file = str(dir / 'predictions.jsonl')
-#     # deid_file = str(dir / 'deid.jsonl')
-#
-#     model = BioCRobustDeid()
-#     entities = model.deidentify_text(
-#         'Physician Discharge Summary Admit date: 10/12/1982 Discharge date: 10/22/1982 Patient '
-#         'Information Jack Reacher, 54 y.o. male (DOB = 1/21/1928)')
-#     for n in entities:
-#         print(n)

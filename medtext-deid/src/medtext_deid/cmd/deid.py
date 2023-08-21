@@ -1,7 +1,7 @@
 """
 Usage:
     medtext-deid philter [options] -i FILE -o FILE
-    medtext-deid bert [options] -i FILE -o FILE
+    medtext-deid bert [options] (--collection | --document | --passage) -i FILE -o FILE
     medtext-deid download
 
 Options:
@@ -9,6 +9,11 @@ Options:
     -o FILE         Output file
     --overwrite     Overwrite the existing file
     --repl CHAR     PHI replacement char [default: X]
+    --collection    Every document has one passage and that passage has
+                    no sentences
+    --document      Every document has a list of passages and these passages
+                    have no sentences
+    --passage       Every passage has a list sentences [default: 0]
 """
 import bioc
 import docopt
@@ -30,7 +35,12 @@ def main():
         nltk.download('averaged_perceptron_tagger')
     elif argv['bert']:
         processor = BioCRobustDeid(repl=argv['--repl'])
-        process_file(argv['-i'], argv['-o'], processor, bioc.DOCUMENT)
+        if argv['--collection']:
+            process_file(argv['-i'], argv['-o'], processor, 0)
+        elif argv['--document']:
+            process_file(argv['-i'], argv['-o'], processor, bioc.DOCUMENT)
+        elif argv['--passage']:
+            process_file(argv['-i'], argv['-o'], processor, bioc.PASSAGE)
 
 
 if __name__ == '__main__':
