@@ -1,0 +1,1 @@
+Please download the model checkpoint files from [here](https://utexas.box.com/s/j9c0s0wasb1162ii8ifytv9je3cft3rv) and put those files under this directory.
