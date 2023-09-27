@@ -29,7 +29,6 @@ NOT_MENTIONED = '-'
 UNCERTAINTY = "possible"
 NEGATION = "absent"
 
-
 def merge_labels(label_dict: Dict[str, Set[int]]) -> Dict[str, int]:
     new_d = {}
     for category, labels in label_dict.items():
@@ -50,10 +49,8 @@ def merge_labels(label_dict: Dict[str, Set[int]]) -> Dict[str, int]:
             raise RuntimeError('Should not reach here')
     return new_d
 
-
 def is_cardiomegaly(ann: bioc.BioCAnnotation) -> bool:
     return ann.text.lower() in ('chf', 'heart failure')
-
 
 def find_findings(doc: bioc.BioCDocument):
     keys = ('FINDINGS', 'FIDING', 'FIMPRESSION', 'FINDGING', 'FINDIGN', 'FINDINDG', 'FINDIN', 'FINDNG', 'FINDNING',
@@ -81,6 +78,7 @@ def aggregate(doc: bioc.BioCDocument, start_with_finding: bool=False) -> Dict[st
     label_dict = collections.defaultdict(set)
     no_finding = True
     for p in doc.passages[i:]:
+        
         for ann in p.annotations:
             category = ann.infons['note_nlp_concept']
             # Don't add any labels for No Finding
