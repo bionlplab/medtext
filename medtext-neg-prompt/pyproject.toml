@@ -3,7 +3,7 @@ requires = [ "setuptools",]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "medtext-neg"
+name = "medtext-neg-prompt"
 version = "1.0.dev3"
 description = "medtext extension for negation/uncerntainty detection."
 readme = "README.md"
@@ -19,7 +19,7 @@ email = "yip4002@med.cornell.edu"
 Homepage = "https://github.com/bionlplab/medtext"
 
 [project.scripts]
-medtext-neg = "medtext_neg.cmd.neg:main"
+medtext-neg-prompt = "medtext_neg_prompt.cmd.neg:main"
 
 [tool.setuptools.dynamic.dependencies]
 file = [ "requirements.txt",]
