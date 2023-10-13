@@ -1,9 +1,9 @@
 import tqdm
 from bioc import BioCPassage
-from medtext_neg.models.constants import POSITIVE
+from medtext_neg_prompt.models.constants import POSITIVE
 from medtext_commons.core import BioCProcessor
-from medtext_neg.models.constants import UNCERTAINTY, NEGATION
-from medtext_neg.models.negation_model import NegationModel
+from medtext_neg_prompt.models.constants import UNCERTAINTY, NEGATION
+from medtext_neg_prompt.models.negation_model import NegationModel
 
 class BioCNeg(BioCProcessor):
     def __init__(self, verbose=False):

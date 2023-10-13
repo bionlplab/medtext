@@ -5,4 +5,4 @@ nltk
 ply
 cachetools
 gdown
-zipfile
+zipfile36

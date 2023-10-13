@@ -25,14 +25,25 @@ It is also generally recommended installing packages in a virtual environment to
 avoid modifying system state:
 
 ```shell
+$ git clone https://github.com/bionlplab/medtext.git
+$ cd medtext
+
+# create virtual environment
 $ python -m venv medtext-venv
 $ source medtext-venv/bin/activate
 $ pip install -U pip setuptools wheel
 
-# download the packages
+# download the packages and install modules
 $ pip install -i https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple medtext
+$ cd medtext-neg-prompt
+$ pip install -e .
+
+# build project
+$ cd ../medtext
+$ pip install -e .
 
 # download all models
+$ cd ..
 $ bash downlad_all.sh
 ```
 medtext supports command-line interfaces for specific NLP tasks (e.g.,

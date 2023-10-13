@@ -7,9 +7,6 @@ Options:
     -i FILE                 Inpput file
     -o FILE                 Output file
     --overwrite             Overwrite the existing file
-    --regex-patterns FILE   Regular expression patterns [default: ~/.medtext/resources/patterns/regex_patterns.yml]
-    --ngrex-patterns FILE   Nregex-based expression patterns [default: ~/.medtext/resources/patterns/ngrex_patterns.yml]
-    --sort-anns             Sort annotations by its location
 """
 import os.path
 import bioc
@@ -20,8 +17,8 @@ from medtext_commons.download_utils import request_medtext
 
 import docopt
 from medtext_commons.cmd_utils import process_options, process_file
-from medtext_neg.models.neg_cleanup import NegCleanUp
-from medtext_neg.models.neg import BioCNeg
+from medtext_neg_prompt.models.neg_cleanup import NegCleanUp
+from medtext_neg_prompt.models.neg import BioCNeg
 
 def main():
     argv = docopt.docopt(__doc__)

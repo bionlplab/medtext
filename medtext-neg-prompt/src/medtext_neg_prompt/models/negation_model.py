@@ -6,11 +6,11 @@ from transformers import (
     BertTokenizer,
     BertForMaskedLM
 )
-import medtext_neg.models.negation_model_utils as negation_model_utils
+import medtext_neg_prompt.models.negation_model_utils as negation_model_utils
 
 MODEL_CLASSES = {"bert_prompt": (BertConfig, BertForMaskedLM, BertTokenizer)}
 LABEL_OF_INTEREST = ['P', 'N', 'U']
-PRETRAINED_MODEL_DIR = './negation_detection_model_checkpoint'
+PRETRAINED_MODEL_DIR = 'medtext-neg-prompt/src/medtext_neg_prompt/models/negation_detection_model_checkpoint'
 
 class NegationModel():
     def __init__(self):

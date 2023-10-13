@@ -24,7 +24,7 @@ dictating</text>
         <infon key="note_nlp_concept_id">12</infon>
         <infon key="note_nlp_concept">Support Devices</infon>
         <infon key="nlp_system">NER_Regex:chexpert_phrases;neg:negbio</infon>
-        <infon key="nlp_date_time">02/09/2022, 00:37:02;09/24/2023, 20:28:01</infon>
+        <infon key="nlp_date_time">02/09/2022, 00:37:02;10/12/2023, 22:46:00</infon>
         <infon key="present">True</infon>
         <location offset="36" length="4"/>
         <text>picc</text>
@@ -34,7 +34,7 @@ dictating</text>
         <infon key="note_nlp_concept_id">1</infon>
         <infon key="note_nlp_concept">Cardiomegaly</infon>
         <infon key="nlp_system">NER_Regex:chexpert_phrases;neg:negbio</infon>
-        <infon key="nlp_date_time">02/09/2022, 00:37:02;09/24/2023, 20:28:01</infon>
+        <infon key="nlp_date_time">02/09/2022, 00:37:02;10/12/2023, 22:46:00</infon>
         <infon key="present">True</infon>
         <location offset="128" length="12"/>
         <text>cardiomegaly</text>
@@ -44,7 +44,7 @@ dictating</text>
         <infon key="note_nlp_concept_id">7</infon>
         <infon key="note_nlp_concept">Lung Opacity</infon>
         <infon key="nlp_system">NER_Regex:chexpert_phrases;neg:negbio</infon>
-        <infon key="nlp_date_time">02/09/2022, 00:37:02;09/24/2023, 20:28:01</infon>
+        <infon key="nlp_date_time">02/09/2022, 00:37:02;10/12/2023, 22:46:00</infon>
         <infon key="absent">True</infon>
         <location offset="163" length="10"/>
         <text>infiltrate</text>
@@ -54,7 +54,7 @@ dictating</text>
         <infon key="note_nlp_concept_id">8</infon>
         <infon key="note_nlp_concept">Pleural Effusion</infon>
         <infon key="nlp_system">NER_Regex:chexpert_phrases;neg:negbio</infon>
-        <infon key="nlp_date_time">02/09/2022, 00:37:02;09/24/2023, 20:28:01</infon>
+        <infon key="nlp_date_time">02/09/2022, 00:37:02;10/12/2023, 22:46:00</infon>
         <infon key="absent">True</infon>
         <location offset="175" length="8"/>
         <text>effusion</text>
@@ -64,7 +64,7 @@ dictating</text>
         <infon key="note_nlp_concept_id">11</infon>
         <infon key="note_nlp_concept">Pneumothorax</infon>
         <infon key="nlp_system">NER_Regex:chexpert_phrases;neg:negbio</infon>
-        <infon key="nlp_date_time">02/09/2022, 00:37:02;09/24/2023, 20:28:01</infon>
+        <infon key="nlp_date_time">02/09/2022, 00:37:02;10/12/2023, 22:46:00</infon>
         <infon key="absent">True</infon>
         <location offset="187" length="12"/>
         <text>pneumothorax</text>
@@ -97,7 +97,7 @@ pneumothorax. osseous structures unchanged scoliosis</text>
         <infon key="note_nlp_concept_id">4</infon>
         <infon key="note_nlp_concept">Enlarged Cardiomediastinum</infon>
         <infon key="nlp_system">NER_Regex:chexpert_phrases;neg:negbio</infon>
-        <infon key="nlp_date_time">02/09/2022, 00:37:02;09/24/2023, 20:28:01</infon>
+        <infon key="nlp_date_time">02/09/2022, 00:37:02;10/12/2023, 22:46:00</infon>
         <infon key="present">True</infon>
         <location offset="49" length="11"/>
         <text>mediastinum</text>
@@ -107,7 +107,7 @@ pneumothorax. osseous structures unchanged scoliosis</text>
         <infon key="note_nlp_concept_id">11</infon>
         <infon key="note_nlp_concept">Pneumothorax</infon>
         <infon key="nlp_system">NER_Regex:chexpert_phrases;neg:negbio</infon>
-        <infon key="nlp_date_time">02/09/2022, 00:37:02;09/24/2023, 20:28:01</infon>
+        <infon key="nlp_date_time">02/09/2022, 00:37:02;10/12/2023, 22:46:00</infon>
         <infon key="absent">True</infon>
         <location offset="125" length="12"/>
         <text>pneumothorax</text>
@@ -117,7 +117,7 @@ pneumothorax. osseous structures unchanged scoliosis</text>
         <infon key="note_nlp_concept_id">13</infon>
         <infon key="note_nlp_concept">No Finding</infon>
         <infon key="nlp_system">NER_Regex:chexpert_phrases;neg:negbio</infon>
-        <infon key="nlp_date_time">02/09/2022, 00:37:02;09/24/2023, 20:28:01</infon>
+        <infon key="nlp_date_time">02/09/2022, 00:37:02;10/12/2023, 22:46:00</infon>
         <infon key="present">True</infon>
         <location offset="168" length="9"/>
         <text>scoliosis</text>
