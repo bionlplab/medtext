@@ -51,7 +51,7 @@ def main():
         ngrex_actor.load_yml2(os.path.expanduser(argv['--ngrex-patterns']))
 
         neg_actor = BioCNeg(regex_actor=regex_actor, ngrex_actor=ngrex_actor)
-        cleanup_actor = NegCleanUp(argv['--sort_anns'])
+        cleanup_actor = NegCleanUp(argv['--sort-anns'])
         pipeline = BioCPipeline()
         pipeline.processors = [neg_actor, cleanup_actor]
 

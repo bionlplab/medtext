@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "medtext-neg"
-version = "1.0.dev3"
+version = "1.0.dev4"
 description = "medtext extension for negation/uncerntainty detection."
 readme = "README.md"
 keywords = [ "clinical note", "text-mining", "NLP", "EHR note",]
