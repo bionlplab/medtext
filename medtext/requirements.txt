@@ -1,4 +1,5 @@
 bioc>=2.0
+nltk
 docopt
 medtext-commons
 medtext-conv

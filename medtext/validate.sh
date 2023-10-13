@@ -27,9 +27,13 @@ medtext-tree2dep -i $examples/ex4.parse.xml -o $output/ex4.depparse_billp.xml
 medtext-ner regex --phrase medtext/resources/chexpert_phrases.yml -i $examples/ex4.secsplit_medspacy.xml -o $output/ex4.ner_regex.xml
 medtext-ner spacy --radlex medtext/resources/Radlex4.1.xlsx -i $examples/ex4.secsplit_medspacy.xml -o $output/ex4.ner_radlex.xml
 # neg
+medtext-neg-prompt download
+medtext-neg-prompt neg -i $examples/ex4.ner_radlex.xml -o $output/ex4.neg.xml
 #medtext-neg --ngrex_negation medtext/resources/patterns/ngrex_negation.yml \
 #  --regex_patterns medtext/resources/patterns/regex_patterns.yml \
 #  -i $examples/ex4.secsplit_medspacy.xml \
 #  -o $output/ex4.ner_radlex.xml
+# collect
+medtext-collect --phrase medtext/resources/chexpert_phrases.yml -i $examples/ex4.neg.xml -o $output/ex4.collect.xml
 # convert bioc to note_nlp table
 medtext-bioc2cdm -i $examples/ex4.depparse_billp.xml -o $output/ex4.deparser_billp.csv

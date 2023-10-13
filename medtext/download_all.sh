@@ -6,3 +6,4 @@ medtext-preprocess download stanza
 medtext-parse download
 medtext-ner download
 medtext-neg download
+medtext-neg-prompt download

@@ -1,7 +1,7 @@
 """
 Usage:
-    medtext-neg neg [--regex-patterns FILE --ngrex-patterns FILE --overwrite --sort-anns] -i FILE -o FILE
-    medtext-neg download [--regex-patterns FILE --ngrex-patterns FILE]
+    medtext-neg-prompt neg -i FILE -o FILE
+    medtext-neg-prompt download 
 
 Options:
     -i FILE                 Inpput file
@@ -14,6 +14,7 @@ Options:
 import os.path
 import bioc
 from medtext_commons.core import BioCPipeline
+from medtext_commons.download_utils import request_medtext
 
 import docopt
 from medtext_commons.cmd_utils import process_options, process_file
@@ -30,6 +31,8 @@ def main():
         pipeline = BioCPipeline()
         pipeline.processors = [neg_actor, cleanup_actor]
         process_file(argv['-i'], argv['-o'], pipeline, bioc.PASSAGE)
+    elif argv['download']:
+        request_medtext(os.path.expanduser('medtext/medtext-neg-prompt/src/medtext_neg_prompt/models/negation_detection_model_checkpoint/'), src='')
     else:
         raise KeyError
 

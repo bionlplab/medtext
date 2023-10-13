@@ -1,6 +1,6 @@
 """
 Usage:
-    collect [options] --phrases FILE -i FILE -o FILE
+    medtext-collect [options] --phrases FILE -i FILE -o FILE
 
 Options:
     --phrases FILE
