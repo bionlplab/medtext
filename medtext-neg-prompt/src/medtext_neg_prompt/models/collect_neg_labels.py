@@ -1,6 +1,6 @@
 """
 Usage:
-    medtext-collect [options] --phrases FILE -i FILE -o FILE
+    collect [options] --phrases FILE -i FILE -o FILE
 
 Options:
     --phrases FILE
@@ -13,21 +13,17 @@ import logging
 from typing import Dict, Set
 
 import bioc
-import docopt
 import pandas as pd
 import tqdm
 import yaml
 
 # Numeric constants
-from medtext_commons.cmd_utils import process_options
+from medtext_neg_prompt.models.constants import UNCERTAINTY, NEGATION
 
 POSITIVE = 'p'
 NEGATIVE = 'n'
 UNCERTAIN = 'u'
 NOT_MENTIONED = '-'
-
-UNCERTAINTY = "possible"
-NEGATION = "absent"
 
 
 def merge_labels(label_dict: Dict[str, Set[int]]) -> Dict[str, int]:
@@ -82,7 +78,7 @@ def aggregate(doc: bioc.BioCDocument, start_with_finding: bool=False) -> Dict[st
     no_finding = True
     for p in doc.passages[i:]:
         for ann in p.annotations:
-            category = ann.infons['note_nlp_concept']
+            category = ann.infons['source_concept']
             # Don't add any labels for No Finding
             if category == "No Finding":
                 continue
@@ -132,7 +128,7 @@ def create_prediction(source, dest, phrases_file, start_with_findings: bool):
         label_dict = aggregate(doc, start_with_findings)
         label_dict = merge_labels(label_dict)
         findings = {k: v for k, v in label_dict.items() if k in phrases.keys()}
-        findings['docid'] = str(doc.id)
+        findings['docid'] = str(doc.concept_id)
         rows.append(findings)
 
     columns = ['docid'] + sorted(phrases.keys())
@@ -142,14 +138,3 @@ def create_prediction(source, dest, phrases_file, start_with_findings: bool):
     if cnt:
         logger.debug('Label statistics: \n%s', cnt)
 
-def main():
-    argv = docopt.docopt(__doc__)
-    process_options(argv)
-
-    create_prediction(source=argv['-i'],
-                      dest=argv['-o'],
-                      phrases_file=argv['--phrases'],
-                      start_with_findings=argv['--start_with_findings'])
-
-if __name__ == '__main__':
-    main()

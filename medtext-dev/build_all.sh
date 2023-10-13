@@ -3,6 +3,7 @@ projects=(
   medtext-conv
   medtext-deid
   medtext-neg
+  medtext-neg-prompt
   medtext-ner
   medtext-parse
   medtext-secsplit

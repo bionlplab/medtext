@@ -3,9 +3,9 @@ requires = [ "setuptools",]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "medtext"
+name = "medtext-neg-prompt"
 version = "1.0.dev3"
-description = "MedText is a high-performance Python Clinic Text Analysis System."
+description = "medtext extension for negation/uncerntainty detection."
 readme = "README.md"
 keywords = [ "clinical note", "text-mining", "NLP", "EHR note",]
 requires-python = ">=3.8"
@@ -19,25 +19,11 @@ email = "yip4002@med.cornell.edu"
 Homepage = "https://github.com/bionlplab/medtext"
 
 [project.scripts]
-medtext-csv2bioc = "medtext_conv.cmd.csv2bioc:main"
-medtext-cdm2bioc = "medtext_conv.cmd.cdm2bioc:main"
-medtext-bioc2cdm = "medtext_conv.cmd.bioc2cdm:main"
-medtext-deid = "medtext_deid.cmd.deid:main"
-medtext-secsplit = "medtext_secsplit.cmd.split_section:main"
-medtext-preprocess = "medtext_preprocess.cmd.preprocess:main"
-medtext-ssplit = "medtext_ssplit.cmd.ssplit:main"
-medtext-parse = "medtext_parse.cmd.parse:main"
-medtext-tree2dep = "medtext_parse.cmd.tree2dep:main"
-medtext-ner = "medtext_ner.cmd.ner:main"
-medtext-neg = "medtext_neg.cmd.neg:main"
 medtext-neg-prompt = "medtext_neg_prompt.cmd.neg:main"
-medtext-collect = "medtext_neg.cmd.collect_neg_labels:main"
-
-[tool.setuptools]
-script-files = [ "download_all.sh",]
 
 [tool.setuptools.dynamic.dependencies]
 file = [ "requirements.txt",]
 
 [tool.setuptools.packages.find]
+where = [ "src",]
 exclude = [ "tests*",]

@@ -25,24 +25,34 @@ It is also generally recommended installing packages in a virtual environment to
 avoid modifying system state:
 
 ```shell
+$ git clone https://github.com/bionlplab/medtext.git
+$ cd medtext
+
+# create virtual environment
 $ python -m venv medtext-venv
 $ source medtext-venv/bin/activate
 $ pip install -U pip setuptools wheel
 
-# download the packages
+# download the packages and install modules
 $ pip install -i https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple medtext
+$ cd medtext-neg-prompt
+$ pip install .
+
+# build project
+$ cd ../medtext
+$ pip install .
 
 # download all models
-$ bash downlad_all.sh
+$ cd ..
+$ bash medtext/downlad_all.sh
 ```
-
 medtext supports command-line interfaces for specific NLP tasks (e.g.,
 de-identification, sentence split, or named entity recognition).
 
 ```shell
 $ medtext-deid --repl=X -i /path/to/input.xml -o /path/to/output.xml
 $ medtext-ssplit -i /path/to/input.xml -o /path/to/output.xml
-$ radext-ner spacy --radlex /path/to/Radlex4.1.xlsx -i /path/to/input.xml -o /path/to/output.xml
+$ medtext-neg-prompt -i /path/to/input.xml -o /path/to/output.xml
 ```
 
 medtext also supports the Python interactive

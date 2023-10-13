@@ -1,0 +1,8 @@
+bioc>=2.0
+docopt
+medtext_commons
+nltk
+ply
+cachetools
+gdown
+zipfile36
