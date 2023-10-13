@@ -13,6 +13,8 @@ Options:
 """
 import os.path
 import bioc
+import gdown
+from zipfile import ZipFile
 from medtext_commons.core import BioCPipeline
 from medtext_commons.download_utils import request_medtext
 
@@ -32,7 +34,12 @@ def main():
         pipeline.processors = [neg_actor, cleanup_actor]
         process_file(argv['-i'], argv['-o'], pipeline, bioc.PASSAGE)
     elif argv['download']:
-        request_medtext(os.path.expanduser('medtext/medtext-neg-prompt/src/medtext_neg_prompt/models/negation_detection_model_checkpoint/'), src='')
+        url = 'https://drive.google.com/uc?id=17xFCEPwdtoHZv8UMFjr7Vl_k8N2Dq1wt'
+        output = 'medtext-neg-prompt/src/medtext_neg_prompt/models/negation_detection_model_checkpoint.zip'
+        gdown.download(url, output, quiet=False)
+        
+        with ZipFile(output, 'r') as zObject: 
+            zObject.extractall('medtext-neg-prompt/src/medtext_neg_prompt/models') 
     else:
         raise KeyError
 

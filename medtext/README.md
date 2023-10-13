@@ -35,16 +35,13 @@ $ pip install -i https://test.pypi.org/simple/ --extra-index-url https://pypi.or
 # download all models
 $ bash downlad_all.sh
 ```
-
-If you are going to use `medtext-neg-prompt` module, please download the model checkpoint files from [here](https://utexas.box.com/s/j9c0s0wasb1162ii8ifytv9je3cft3rv) and put those files under `/medtext/medtext-neg-prompt/src/medtext_neg_prompt/models/negation_detection_model_checkpoint` dir.
-
 medtext supports command-line interfaces for specific NLP tasks (e.g.,
 de-identification, sentence split, or named entity recognition).
 
 ```shell
 $ medtext-deid --repl=X -i /path/to/input.xml -o /path/to/output.xml
 $ medtext-ssplit -i /path/to/input.xml -o /path/to/output.xml
-$ radext-ner spacy --radlex /path/to/Radlex4.1.xlsx -i /path/to/input.xml -o /path/to/output.xml
+$ medtext-neg-prompt -i /path/to/input.xml -o /path/to/output.xml
 ```
 
 medtext also supports the Python interactive
