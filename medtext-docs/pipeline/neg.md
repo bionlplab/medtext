@@ -1,5 +1,34 @@
 # Negation Detection
 
+## Prompt-based model
+
+This model uses a [prompt-based learning approach](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9378721/) to identify the assertion 
+status of an entity in the unstructured clinical notes.
+The outcomes are Present, Absent, Possible, Conditional, Hypothetical, and 
+Not Associated.
+
+```shell
+Usage:
+    medtext-neg-prompt neg [--model-dir DIR --overwrite] -i FILE -o FILE
+    medtext-neg-prompt download [--model FILE --model-dir DIR]
+
+Options:
+    -i FILE                 Inpput file
+    -o FILE                 Output file
+    --overwrite             Overwrite the existing file
+    --model FILE            Pretrained model file [default: ~/.medtext/resources/medtext_neg_prompt/models/negation_detection_model_checkpoint.zip]
+    --model-dir DIR         [default: ~/.medtext/resources/medtext_neg_prompt/models/negation_detection_model_checkpoint]
+```
+
+```python
+from medtext_neg.models.prompt.neg_prompt import BioCNegPrompt
+
+model_dir = Path(argv['--model-dir']).expanduser()
+neg_actor = BioCNegPrompt(pretrained_model_dir=model_dir)
+```
+
+## NegBio
+
 For negation detection, medtext employs
 [NegBio](https://github.com/bionlplab/negbio2), which utilizes universal
 dependencies for pattern definition and subgraph matching for graph traversal
@@ -34,7 +63,7 @@ neg_actor = BioCNeg(regex_actor=regex_actor, ngrex_actor=ngrex_actor)
 cleanup_actor = NegCleanUp(argv['--sort_anns'])
 ```
 
-## Nregex
+### Nregex
 
 A Nregex pattern is a regular expression-like pattern that is designed to match node and edge configurations within a
 graph. The Nregex pattern allows matching on the attributes of nodes (e.g., lemma) and edges (e.g., dependency type). 
@@ -47,7 +76,7 @@ Rather there is a linear scan through the all nodes in
 the graph. As a result, matching is **slower**.
 ```
 
-### Nodes and relations
+#### Nodes and relations
 
 A node or relation is represented by a set of attributes and their values contained by curly braces:
 `{attr1:value1;attr2:value2;...}`. `{}` represents any node in the graph. Attributes must be plain strings;
@@ -59,18 +88,18 @@ value. For example, `{lemma:/structure/}` matches any nodes with "structure" as 
 Currently, supported node attribute is `lemma`. Supported relation attribute is `dependency`.
 ```
 
-### Nregex pattern language
+#### Nregex pattern language
 
 | Symbol          | Meaning                                      |
 |:----------------|:---------------------------------------------|
 | A <reln B       | A is the dependent of a relation reln with B |
 | A >reln B       | A is the governor of a relation reln with B  |
 
-### Boolean relational operators
+#### Boolean relational operators
 
 Relations can be combined using the '&' and '|' operators
 
-### Naming nodes
+#### Naming nodes
 
 Nodes can be given names (a.k.a. handles) using '='. A named node will be stored in a map that maps names to nodes so
 that if a match is found, the node corresponding to the named node can be extracted from the map. For example,

@@ -3,7 +3,7 @@ from typing import Tuple
 import bioc
 import pytest
 
-from medtext_neg.models.neg import NegRegexPatterns
+from medtext_neg.models.rules.neg import NegRegexPatterns
 from medtext_neg.models.constants import UNCERTAINTY, NEGATION
 
 # negation = Resource_Dir / 'patterns/regex_negation.yml'

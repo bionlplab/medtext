@@ -4,3 +4,5 @@ medtext_commons
 nltk
 ply
 cachetools
+gdown
+zipfile36

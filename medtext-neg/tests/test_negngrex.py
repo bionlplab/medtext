@@ -3,7 +3,7 @@ from typing import Tuple
 import bioc
 import pytest
 
-from medtext_neg.models.neg import NegGrexPatterns
+from medtext_neg.models.rules.neg import NegGrexPatterns
 from medtext_neg.models.constants import NEGATION, UNCERTAINTY
 from medtext_parse.models.tree2dep import BioCPtb2DepConverter
 

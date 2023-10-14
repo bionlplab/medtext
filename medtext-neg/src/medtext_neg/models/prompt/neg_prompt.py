@@ -1,18 +1,17 @@
 import tqdm
 from bioc import BioCPassage
-from medtext_neg_prompt.models.constants import POSITIVE
 from medtext_commons.core import BioCProcessor
-from medtext_neg_prompt.models.constants import UNCERTAINTY, NEGATION
-from medtext_neg_prompt.models.negation_model import NegationModel
+from medtext_neg.models.constants import UNCERTAINTY, NEGATION, POSITIVE
+from medtext_neg.models.prompt.negation_model import NegationModel
 
-class BioCNeg(BioCProcessor):
-    def __init__(self, verbose=False):
-        super(BioCNeg, self).__init__('neg:negbio')
+
+class BioCNegPrompt(BioCProcessor):
+    def __init__(self, pretrained_model_dir, verbose=False):
+        super(BioCNegPrompt, self).__init__('neg:prompt')
         self.verbose = verbose
-        self.negation_model = NegationModel()
+        self.negation_model = NegationModel(pretrained_model_dir=pretrained_model_dir)
 
     def process_passage(self, passage: BioCPassage, docid: str = None) -> BioCPassage:
-
         text = passage.text
         for ann in tqdm.tqdm(passage.annotations, disable=not self.verbose):
             ann.infons[POSITIVE] = True

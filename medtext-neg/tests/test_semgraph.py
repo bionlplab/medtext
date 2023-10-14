@@ -2,7 +2,7 @@ import json
 
 import bioc
 from bioc import biocjson
-from medtext_neg.models import semgraph
+from medtext_neg.models.rules import semgraph
 
 json_str = r"""
 {

@@ -5,7 +5,8 @@ import bioc
 import yaml
 
 from medtext_commons.base_utils import intersect
-from medtext_neg.models import ngrex, semgraph
+from medtext_neg.models.rules import semgraph
+from medtext_neg.models import ngrex
 from medtext_neg.models.constants import UNCERTAINTY, NEGATION
 
 from cachetools import cached, LRUCache

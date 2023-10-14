@@ -20,6 +20,7 @@ Homepage = "https://github.com/bionlplab/medtext"
 
 [project.scripts]
 medtext-neg = "medtext_neg.cmd.neg:main"
+medtext-neg-prompt = "medtext_neg.cmd.neg_prompt:main"
 
 [tool.setuptools.dynamic.dependencies]
 file = [ "requirements.txt",]

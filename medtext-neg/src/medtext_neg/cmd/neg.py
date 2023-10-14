@@ -21,10 +21,10 @@ from medtext_commons.core import BioCPipeline
 
 import docopt
 from medtext_commons.cmd_utils import process_options, process_file
-from medtext_neg.models.match_ngrex import NegGrexPatterns
-from medtext_neg.models.neg import NegRegexPatterns
+from medtext_neg.models.rules.match_ngrex import NegGrexPatterns
+from medtext_neg.models.rules.neg import NegRegexPatterns
 from medtext_neg.models.neg_cleanup import NegCleanUp
-from medtext_neg.models.neg import BioCNeg
+from medtext_neg.models.rules.neg import BioCNeg
 
 
 # DEFAULT_RADLEX = Path.home() / '.medtext/resources/Radlex4.1.xlsx'

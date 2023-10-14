@@ -2,8 +2,8 @@ import tqdm
 from bioc import BioCPassage
 from medtext_neg.models.constants import POSITIVE
 from medtext_commons.core import BioCProcessor
-from medtext_neg.models.match_ngrex import NegGrexPatterns
-from medtext_neg.models.match_regex import NegRegexPatterns
+from medtext_neg.models.rules.match_ngrex import NegGrexPatterns
+from medtext_neg.models.rules.match_regex import NegRegexPatterns
 
 
 class BioCNeg(BioCProcessor):
