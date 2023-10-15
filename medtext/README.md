@@ -35,7 +35,7 @@ $ pip install -U pip setuptools wheel
 
 # download the packages and install modules
 $ pip install -i https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple medtext
-$ cd medtext-neg-prompt
+$ cd medtext-neg
 $ pip install .
 
 # build project

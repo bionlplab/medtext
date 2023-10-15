@@ -23,9 +23,7 @@ from medtext_commons.cmd_utils import process_options, process_file
 from medtext_neg.models.neg_cleanup import NegCleanUp
 from medtext_neg.models.prompt.neg_prompt import BioCNegPrompt
 
-
 MODEL_URL = 'https://drive.google.com/uc?id=17xFCEPwdtoHZv8UMFjr7Vl_k8N2Dq1wt'
-
 
 def main():
     argv = docopt.docopt(__doc__)
