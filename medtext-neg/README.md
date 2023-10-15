@@ -1,4 +1,4 @@
-This module recognizes mention spans of a particular entity type (e.g., abnormal findings) from the reports. 
+This module recognizes the assertion status (positive, negative, uncertain, hypothetical, condition, not associated) of the entities in the reports. 
 
 ## Links
 
