@@ -9,7 +9,7 @@ from transformers import (
 import medtext_neg.models.prompt.negation_model_utils as negation_model_utils
 
 MODEL_CLASSES = {"bert_prompt": (BertConfig, BertForMaskedLM, BertTokenizer)}
-LABEL_OF_INTEREST = ['P', 'N', 'U']
+LABEL_OF_INTEREST = ['P', 'N', 'U', 'H', 'C', 'O']
 
 
 def load_formatted_dataframe(input_text, target_disease) -> pd.DataFrame:
@@ -40,7 +40,7 @@ class NegationModel:
         outputs = self.model(**inputs)
         logits = outputs.logits
 
-        _, from_index_to_answer, _ = negation_model_utils.from_answer_to_dicts(['P', 'N', 'U'], self.tokenizer)
+        _, from_index_to_answer, _ = negation_model_utils.from_answer_to_dicts(['P', 'N', 'U', 'H', 'C', 'O'], self.tokenizer)
         mask_pos_formatted = mask_pos.unsqueeze(-1).repeat(1, self.tokenizer.vocab_size).unsqueeze(1) 
         logits = torch.gather(logits, 1, mask_pos_formatted.to(self.device)) 
         logits = logits[:, :, list(from_index_to_answer.keys())].squeeze(1)

@@ -3,8 +3,7 @@ from typing import List
 from bioc import BioCAnnotation, BioCPassage
 
 from medtext_commons.core import BioCProcessor
-from medtext_neg.models.constants import UNCERTAINTY, NEGATION, POSITIVE
-
+from medtext_neg.models.constants import UNCERTAINTY, NEGATION, POSITIVE, CONDITIONAL, HYPOTHETICAL, NOT_ASSOCIATED
 
 def extend_anns(annotations: List[BioCAnnotation]):
     """Mark all annotations in [begin:end] as type"""
@@ -13,11 +12,11 @@ def extend_anns(annotations: List[BioCAnnotation]):
     for i in range(len(annotations)):
         ai = annotations[i]
         ai_loc = ai.total_span
-        if not (NEGATION in ai.infons or UNCERTAINTY in ai.infons):
+        if not (NEGATION in ai.infons or UNCERTAINTY in ai.infons or CONDITIONAL in ai.infons or HYPOTHETICAL in ai.infons or NOT_ASSOCIATED in ai.infons):
             continue
         for j in range(i + 1, len(annotations)):
             aj = annotations[j]
-            if NEGATION in aj.infons or UNCERTAINTY in aj.infons:
+            if NEGATION in aj.infons or UNCERTAINTY in aj.infons or CONDITIONAL in aj.infons or HYPOTHETICAL in aj.infons or NOT_ASSOCIATED in aj.infons:
                 continue
             aj_loc = aj.total_span
             if ai_loc.offset <= aj_loc.offset and aj_loc.end <= ai_loc.end:
@@ -25,8 +24,14 @@ def extend_anns(annotations: List[BioCAnnotation]):
                     aj.infons[NEGATION] = ai.infons[NEGATION]
                 if UNCERTAINTY in ai.infons:
                     aj.infons[UNCERTAINTY] = ai.infons[UNCERTAINTY]
+                if CONDITIONAL in ai.infons:
+                    aj.infons[CONDITIONAL] = ai.infons[CONDITIONAL]
+                if HYPOTHETICAL in ai.infons:
+                    aj.infons[HYPOTHETICAL] = ai.infons[HYPOTHETICAL]
+                if NOT_ASSOCIATED in ai.infons:
+                    aj.infons[NOT_ASSOCIATED] = ai.infons[NOT_ASSOCIATED]
                 for k in ai.infons.keys():
-                    if k in (NEGATION, UNCERTAINTY) or 'pattern_id' in k or 'pattern_str' in k:
+                    if k in (NEGATION, UNCERTAINTY, CONDITIONAL, HYPOTHETICAL, NOT_ASSOCIATED) or 'pattern_id' in k or 'pattern_str' in k:
                         aj.infons[k] = ai.infons[k]
 
 
@@ -55,7 +60,7 @@ class NegCleanUp(BioCProcessor):
             passage.annotations = anns
 
         for ann in passage.annotations:
-            if NEGATION in ann.infons or UNCERTAINTY in ann.infons:
+            if NEGATION in ann.infons or UNCERTAINTY in ann.infons or CONDITIONAL in ann.infons or HYPOTHETICAL in ann.infons or NOT_ASSOCIATED in ann.infons:
                 if POSITIVE in ann.infons:
                     ann.infons.pop(POSITIVE)
 

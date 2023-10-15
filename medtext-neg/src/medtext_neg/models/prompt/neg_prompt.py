@@ -1,9 +1,8 @@
 import tqdm
 from bioc import BioCPassage
 from medtext_commons.core import BioCProcessor
-from medtext_neg.models.constants import UNCERTAINTY, NEGATION, POSITIVE
+from medtext_neg.models.constants import UNCERTAINTY, NEGATION, POSITIVE, CONDITIONAL, HYPOTHETICAL, NOT_ASSOCIATED
 from medtext_neg.models.prompt.negation_model import NegationModel
-
 
 class BioCNegPrompt(BioCProcessor):
     def __init__(self, pretrained_model_dir, verbose=False):
@@ -34,6 +33,12 @@ class BioCNegPrompt(BioCProcessor):
                 ann.infons[UNCERTAINTY] = True
             elif negationResponse == 'P':
                 ann.infons[POSITIVE] = True
+            elif negationResponse == 'C':
+                ann.infons[CONDITIONAL] = True
+            elif negationResponse == 'H':
+                ann.infons[HYPOTHETICAL] = True
+            elif negationResponse == 'O':
+                ann.infons[NOT_ASSOCIATED] = True
             else:
                 raise RuntimeError('Invalid negation response.')
         
