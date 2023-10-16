@@ -4,6 +4,7 @@ from medtext_commons.core import BioCProcessor
 from medtext_neg.models.constants import UNCERTAINTY, NEGATION, POSITIVE, CONDITIONAL, HYPOTHETICAL, NOT_ASSOCIATED
 from medtext_neg.models.prompt.negation_model import NegationModel
 
+
 class BioCNegPrompt(BioCProcessor):
     def __init__(self, pretrained_model_dir, verbose=False):
         super(BioCNegPrompt, self).__init__('neg:prompt')
