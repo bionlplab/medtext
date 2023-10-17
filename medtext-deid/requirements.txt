@@ -6,10 +6,13 @@ robust_deid==0.3.1
 pycorenlp==0.3.0
 datasets==1.18.3
 seqeval
+spacy>=3.7.0
 protobuf==3.20.0
 pydantic==1.7.4
-# bert_deid
-# seqeval
-# transformers==3.4
-# protobuf==3.20.3
-# google-cloud-storage==1.32.0
+torch==1.10.1
+transformers==4.11.3
+torchvision==0.11.2
+torchaudio==0.10.1
+tensorflow==2.7.0
+# https://s3-us-west-2.amazonaws.com/ai2-s2-scispacy/releases/v0.5.3/en_core_sci_sm-0.5.3.tar.gz
+# https://s3-us-west-2.amazonaws.com/ai2-s2-scispacy/releases/v0.5.3/en_core_sci_lg-0.5.3.tar.gz

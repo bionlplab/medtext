@@ -29,7 +29,7 @@ include-package-data = true
 "medtext_deid.pphilter" = ["*","*/*","*/*/*","*/*/*/*"]
 
 [tool.setuptools.dynamic.dependencies]
-file = [ "requirements.txt"]
+file = ["requirements.txt"]
 
 [tool.setuptools.packages.find]
 namespaces = true

@@ -52,9 +52,9 @@ medtext supports command-line interfaces for specific NLP tasks (e.g.,
 de-identification, sentence split, or named entity recognition).
 
 ```shell
-$ medtext-deid --repl=X -i /path/to/input.xml -o /path/to/output.xml
-$ medtext-ssplit -i /path/to/input.xml -o /path/to/output.xml
-$ medtext-neg-prompt -i /path/to/input.xml -o /path/to/output.xml
+$ medtext-deid philter --repl=X -i /path/to/input.xml -o /path/to/output.xml
+$ medtext-ssplit ssplit -i /path/to/input.xml -o /path/to/output.xml
+$ medtext-neg-prompt neg -i /path/to/input.xml -o /path/to/output.xml
 ```
 
 medtext also supports the Python interactive
