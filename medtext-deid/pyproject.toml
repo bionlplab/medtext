@@ -26,9 +26,10 @@ include-package-data = true
 
 [tool.setuptools.package-data]
 "medtext_deid.models" = [ "predict_i2b2_medtext.json",]
+"medtext_deid.pphilter" = ["*","*/*","*/*/*","*/*/*/*"]
 
 [tool.setuptools.dynamic.dependencies]
-file = [ "requirements.txt",]
+file = [ "requirements.txt"]
 
 [tool.setuptools.packages.find]
 namespaces = true

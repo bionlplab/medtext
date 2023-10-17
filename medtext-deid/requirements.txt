@@ -2,6 +2,12 @@ bioc>=2.0
 docopt
 medtext_commons
 nltk
+robust_deid==0.3.1
+pycorenlp==0.3.0
+datasets==1.18.3
+seqeval
+protobuf==3.20.0
+pydantic==1.7.4
 # bert_deid
 # seqeval
 # transformers==3.4

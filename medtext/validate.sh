@@ -10,10 +10,10 @@ python src/medtext/cmd/download.py all
 medtext-csv2bioc -i $examples/ex1.csv -o $output/ex1.xml
 medtext-cdm2bioc -i $examples/ex2.csv -o $output/ex2.xml
 # deid
-medtext-deid --repl=X -i $examples/ex3.xml -o $output/ex3.deid_philter.xml
+medtext-deid philter --repl=X -i $examples/ex3.xml -o $output/ex3.deid_philter.xml
 # split section
-medtext-secsplit reg -i $examples/ex4.xml -o $output/ex4.secsplit_regex.xml
 medtext-secsplit medspacy -i $examples/ex4.xml -o $output/ex4.secsplit_medspacy.xml
+medtext-secsplit regex -i $examples/ex4.xml -o $output/ex4.secsplit_regex.xml
 # preprocess
 medtext-preprocess spacy -i $examples/ex4.secsplit_medspacy.xml -o $output/ex4.preprocess_spacy.xml
 medtext-preprocess stanza -i $examples/ex4.secsplit_medspacy.xml -o $output/ex4.preprocess_stanza.xml
