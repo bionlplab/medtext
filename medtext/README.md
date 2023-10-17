@@ -37,6 +37,8 @@ $ pip install -U pip setuptools wheel
 $ pip install -i https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple medtext
 $ cd medtext-neg
 $ pip install .
+$ cd medtext-deid
+$ pip install .
 
 # build project
 $ cd ../medtext
