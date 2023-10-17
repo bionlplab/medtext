@@ -46,7 +46,7 @@ $ pip install .
 
 # download all models
 $ cd ..
-$ bash medtext/downlad_all.sh
+$ bash medtext/download_all.sh
 ```
 medtext supports command-line interfaces for specific NLP tasks (e.g.,
 de-identification, sentence split, or named entity recognition).
