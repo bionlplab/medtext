@@ -46,10 +46,12 @@ class BioCSectionSplitterMedSpacy(BioCProcessor):
         anns = []
         medspacy_doc = self.nlp(text)
         for i, section in enumerate(medspacy_doc._.sections):
+            print(section.title_span, section.body_span, len(doc.passages))
             # title
-            passage = create_passage(offset, medspacy_doc, section.title_span,
-                                     section.category)
-            if not is_passage_empty(passage):
+            if section.title_span[0] != section.title_span[1]:
+                passage = create_passage(offset, medspacy_doc,
+                                         section.title_span,
+                                         section.category)
                 doc.add_passage(passage)
                 if 'section_concept' in passage.infons:
                     ann = BioCAnnotation()
@@ -64,8 +66,10 @@ class BioCSectionSplitterMedSpacy(BioCProcessor):
                         passage.offset, len(passage.text)))
                     anns.append(ann)
             # body
-            passage = create_passage(offset, medspacy_doc, section.body_span)
-            if not is_passage_empty(passage):
+            if section.body_span[0] != section.body_span[1]:
+                passage = create_passage(offset,
+                                         medspacy_doc,
+                                         section.body_span)
                 doc.add_passage(passage)
 
         doc.passages = sorted(doc.passages, key=lambda p: p.offset)

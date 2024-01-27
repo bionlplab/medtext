@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "medtext-secsplit"
-version = "1.0.dev4"
+version = "1.0.dev5"
 description = "medtext extension for section splitting."
 readme = "README.md"
 keywords = [ "clinical note", "text-mining", "NLP", "EHR note",]

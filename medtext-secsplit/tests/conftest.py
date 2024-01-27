@@ -22,7 +22,14 @@ def collection():
 
 
 @pytest.fixture
-def section_titles(resource_dir):
-    with open(resource_dir / 'section_titles.txt') as fp:
+def cxr_section_titles(resource_dir):
+    with open(resource_dir / 'cxr_section_titles.txt') as fp:
+        section_titles = [line.strip() for line in fp]
+    return section_titles
+
+
+@pytest.fixture
+def medspacy_section_titles(resource_dir):
+    with open(resource_dir / 'medspacy_section_titles.txt') as fp:
         section_titles = [line.strip() for line in fp]
     return section_titles

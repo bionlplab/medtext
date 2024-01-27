@@ -12,3 +12,4 @@ def test_section_split_medspacy(collection):
     assert len(document.annotations) == 2
     assert document.annotations[0].text == 'findings:'
     assert document.annotations[1].text == 'impression:'
+

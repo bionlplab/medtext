@@ -36,7 +36,7 @@ def combine_patterns(patterns: List[str]) -> Pattern:
     logger = logging.getLogger(__name__)
     p = '|'.join(patterns)
     logger.debug('Section patterns: %s', p)
-    return re.compile(p, re.IGNORECASE | re.MULTILINE)
+    return re.compile(p, re.MULTILINE)
 
 
 # def _default_patterns():

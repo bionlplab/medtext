@@ -1,6 +1,6 @@
 """
 Usage:
-    medtext-secsplit regex [--section-titles FILE | --overwrite] -i FILE -o FILE
+    medtext-secsplit regex [--section-titles FILE --overwrite] -i FILE -o FILE
     medtext-secsplit medspacy [--overwrite] -i FILE -o FILE
     medtext-secsplit download [--section-titles FILE]
 
@@ -8,7 +8,7 @@ Options:
     -o FILE                 Input file
     -i FILE                 Output file
     --overwrite             Overwrite the existing file
-    --section-titles FILE   List of section titles [default: ~/.medtext/resources/section_titles.txt]
+    --section-titles FILE   List of section titles [default: ~/.medtext/resources/medspacy_section_titles.txt]
 """
 import os.path
 

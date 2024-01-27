@@ -5,7 +5,7 @@ We provide two options for section split.
 
 ```shell
 Usage:
-    medtext-secsplit regex [--section-titles FILE | --overwrite] -i FILE -o FILE
+    medtext-secsplit regex [--section-titles FILE --overwrite] -i FILE -o FILE
     medtext-secsplit medspacy [--overwrite] -i FILE -o FILE
     medtext-secsplit download [--section-titles FILE]
 
@@ -13,7 +13,7 @@ Options:
     -o FILE                 Input file
     -i FILE                 Output file
     --overwrite             Overwrite the existing file
-    --section-titles FILE   List of section titles [default: ~/.medtext/resources/section_titles.txt]
+    --section-titles FILE   List of section titles [default: ~/.medtext/resources/medspacy_section_titles.txt]
 ```
 
 ## regex
@@ -28,6 +28,11 @@ with open(argv['--section-titles']) as fp:
 pattern = combine_patterns(section_titles)
 processor = BioCSectionSplitterRegex(regex_pattern=pattern)
 ```
+
+We provide two sets of section titles
+* `medspacy_section_titles`: rules from [medspacy](https://github.com/medspacy/medspacy/blob/master/resources/section_patterns.json), 
+    which are adapted from [SecTag](https://www.vumc.org/cpm/cpm-blog/sectag-tagging-clinical-note-section-headers) and expanded through practice
+* `cxr_section_titles`: rules from the analysis of radiology reports in MIMIC-CXR
 
 ## medspacy
 
