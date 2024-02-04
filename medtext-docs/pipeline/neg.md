@@ -1,24 +1,29 @@
 # Negation Detection
 
+```shell
+Usage:
+    medtext-neg negbio [--regex-patterns FILE --ngrex-patterns FILE --overwrite --sort-anns] -i FILE -o FILE
+    medtext-neg prompt [--model-dir DIR --overwrite] -i FILE -o FILE
+    medtext-neg download negbio [--regex-patterns FILE --ngrex-patterns FILE]
+    medtext-neg download prompt [--model FILE --model-dir DIR]
+
+Options:
+    -i FILE                 Inpput file
+    -o FILE                 Output file
+    --overwrite             Overwrite the existing file
+    --regex-patterns FILE   Regular expression patterns [default: ~/.medtext/resources/patterns/regex_patterns.yml]
+    --ngrex-patterns FILE   Nregex-based expression patterns [default: ~/.medtext/resources/patterns/ngrex_patterns.yml]
+    --sort-anns             Sort annotations by its location
+    --model FILE            Pretrained model file [default: ~/.medtext/resources/medtext_neg_prompt/models/negation_detection_model_checkpoint.zip]
+    --model-dir DIR         [default: ~/.medtext/resources/medtext_neg_prompt/models/negation_detection_model_checkpoint]
+```
+
 ## Prompt-based model
 
 This model uses a [prompt-based learning approach](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9378721/) to identify the assertion 
 status of an entity in the unstructured clinical notes.
 The outcomes are Present, Absent, Possible, Conditional, Hypothetical, and 
 Not Associated.
-
-```shell
-Usage:
-    medtext-neg-prompt neg [--model-dir DIR --overwrite] -i FILE -o FILE
-    medtext-neg-prompt download [--model FILE --model-dir DIR]
-
-Options:
-    -i FILE                 Inpput file
-    -o FILE                 Output file
-    --overwrite             Overwrite the existing file
-    --model FILE            Pretrained model file [default: ~/.medtext/resources/medtext_neg_prompt/models/negation_detection_model_checkpoint.zip]
-    --model-dir DIR         [default: ~/.medtext/resources/medtext_neg_prompt/models/negation_detection_model_checkpoint]
-```
 
 ```python
 from medtext_neg.models.prompt.neg_prompt import BioCNegPrompt
@@ -34,20 +39,6 @@ For negation detection, medtext employs
 dependencies for pattern definition and subgraph matching for graph traversal
 search so that the scope for negation/uncertainty is not limited to the fixed
 word distance.
-
-```shell
-Usage:
-    medtext-neg neg [--regex-patterns FILE --ngrex-patterns FILE --overwrite --sort-anns] -i FILE -o FILE
-    medtext-neg download [--regex-patterns FILE --ngrex-patterns FILE]
-
-Options:
-    -i FILE                 Inpput file
-    -o FILE                 Output file
-    --overwrite             Overwrite the existing file
-    --regex-patterns FILE   Regular expression patterns [default: ~/.medtext/resources/patterns/regex_patterns.yml]
-    --ngrex-patterns FILE   Nregex-based expression patterns [default: ~/.medtext/resources/patterns/ngrex_patterns.yml]
-    --sort-anns             Sort annotations by its location
-```
 
 ```python
 from medtext_neg.models.match_ngrex import NegGrexPatterns

@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "medtext-neg"
-version = "1.0.dev5"
+version = "1.0.dev7"
 description = "medtext extension for negation/uncerntainty detection."
 readme = "README.md"
 keywords = [ "clinical note", "text-mining", "NLP", "EHR note",]
@@ -19,8 +19,7 @@ email = "yip4002@med.cornell.edu"
 Homepage = "https://github.com/bionlplab/medtext"
 
 [project.scripts]
-medtext-neg = "medtext_neg.cmd.neg:main"
-medtext-neg-prompt = "medtext_neg.cmd.neg_prompt:main"
+medtext-neg = "medtext_neg.cmd.assert_:main"
 
 [tool.setuptools.dynamic.dependencies]
 file = [ "requirements.txt",]
