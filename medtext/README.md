@@ -69,7 +69,7 @@ site](https://medtext.readthedocs.io/en/latest/index.html).
 ## Contributing
 
 You can find information about contributing to medtext at our [Contribution
-page](https://medtext.readthedocs.io/en/latest/contributing.html).
+page](https://medtext.readthedocs.io/en/latest/contribute.html).
 
 ## Acknowledgment
 
