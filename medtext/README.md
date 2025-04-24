@@ -6,7 +6,7 @@ medtext is a high-performance Python Clinical Text Analysis System.
 
 ## Prerequisites
 
-* Python >= 3.6, <3.9
+* Python >= 3.6, <=3.9
 * Linux 
 * Java
 
